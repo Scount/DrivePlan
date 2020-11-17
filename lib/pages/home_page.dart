@@ -1,5 +1,6 @@
 import 'package:driveplan/pages/additional_training_page.dart';
 import 'package:driveplan/pages/my_account_page.dart';
+import 'package:driveplan/pages/questions_page.dart';
 import 'package:driveplan/pages/setting_page.dart';
 import 'package:flutter/material.dart';
 
@@ -71,7 +72,12 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => QuestionsPage()),
+                    );
+                  },
                   child: Row(
                     children: [
                       Expanded(child: Text("Geführten Lernweg fortsetzen")),
