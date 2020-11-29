@@ -50,20 +50,61 @@ class _BonusTrainingState extends State<BonusTraining> {
               });
             },
           ),
-          dropDownValue == "Praxispakete" ? praxisPaketeWidget() : (dropDownValue == "Wahrnehmungsbilder" ? wahrnehmungsBilderWidget() : suchbilderWidget())
+          dropDownValue == "Praxispakete"
+              ? Expanded(child: praxisPaketeWidget())
+              : (dropDownValue == "Wahrnehmungsbilder"
+                  ? Expanded(child:wahrnehmungsBilderWidget())
+                  : Expanded(child:suchbilderWidget()))
         ],
       ),
     );
   }
 
   Widget praxisPaketeWidget() {
-    return Container(child: Center(child: Text("Praxis"),),);
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: 10,
+      itemBuilder: (context, index) => ExpansionTile(
+        title: Text("Test"),
+        children: [
+          Row(
+            children: [
+              Padding(
+                child: Image.network('https://picsum.photos/250?image=9',
+                    height: 50),
+                padding: const EdgeInsets.all(8),
+              ),
+              Padding(
+                child: Image.network('https://picsum.photos/250?image=9',
+                    height: 50),
+                padding: const EdgeInsets.all(8),
+              ),
+              Padding(
+                child: Image.network('https://picsum.photos/250?image=9',
+                    height: 50),
+                padding: const EdgeInsets.all(8),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
   }
+
   Widget wahrnehmungsBilderWidget() {
-    return Container(child: Center(child: Text("Wahrnehmung"),),);
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,),
+      itemBuilder: (BuildContext context, int index) =>
+           Padding(child: Image.network('https://picsum.photos/250?image=9', height: 50), padding: const EdgeInsets.all(5),)
+    );
   }
+
   Widget suchbilderWidget() {
-    return Container(child: Center(child: Text("Such"),),);
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,),
+      itemBuilder: (BuildContext context, int index) =>
+           Padding(child: Image.network('https://picsum.photos/250?image=9', height: 50), padding: const EdgeInsets.all(5),)
+    );
   }
 
   Widget theorieBody() {
