@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           children: [
             ListTile(
-              title: Text("Zusätzliches Training"),
+              title: Text("Zusatz Materialien"),
               onTap: () {
                 Navigator.push(
                   context,
@@ -113,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Row(
                           children: [
-                            Expanded(child: Text("Bonus Training")),
+                            Expanded(child: Text("Zusatz Training")),
                             Icon(Icons.arrow_forward)
                           ],
                         ),
