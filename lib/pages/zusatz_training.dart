@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class BonusTraining extends StatefulWidget {
-  BonusTraining({Key key}) : super(key: key);
+class ZusatzTraining extends StatefulWidget {
+  ZusatzTraining({Key key}) : super(key: key);
 
   @override
-  _BonusTrainingState createState() => _BonusTrainingState();
+  _ZusatzTrainingState createState() => _ZusatzTrainingState();
 }
 
-class _BonusTrainingState extends State<BonusTraining> {
+class _ZusatzTrainingState extends State<ZusatzTraining> {
   var dropDownValue = "Praxispakete";
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class _BonusTrainingState extends State<BonusTraining> {
         length: 2,
         child: Scaffold(
             appBar: AppBar(
-              title: Text("Bonus Training"),
+              title: Text("Zusatz Training"),
               bottom: TabBar(
                 tabs: [
                   Tab(
