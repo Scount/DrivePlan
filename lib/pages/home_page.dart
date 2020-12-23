@@ -1,4 +1,5 @@
 import 'package:driveplan/pages/additional_training_page.dart';
+import 'package:driveplan/pages/statistik.dart';
 import 'package:driveplan/pages/zusatz_training.dart';
 import 'package:driveplan/pages/my_account_page.dart';
 import 'package:driveplan/pages/questions_page.dart';
@@ -36,6 +37,15 @@ class _HomePageState extends State<HomePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => MyAccount()),
+                );
+              },
+            ),
+            ListTile(
+              title: Text("Statistik"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Statistik()),
                 );
               },
             ),
