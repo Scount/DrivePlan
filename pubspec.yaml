@@ -27,6 +27,8 @@ dependencies:
   equatable: ^1.2.5
   fl_chart: ^0.12.2
   flutter_bloc: ^6.1.0
+  responsive_grid: ^1.2.1+1
+  table_calendar: ^2.3.3
 
 dev_dependencies:
   flutter_test:
