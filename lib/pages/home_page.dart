@@ -41,15 +41,6 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              title: Text("Statistik"),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Statistik()),
-                );
-              },
-            ),
-            ListTile(
               title: Text("Einstellungen"),
               onTap: () {
                 Navigator.push(

@@ -1,7 +1,7 @@
 import 'package:driveplan/pages/my_calendar.dart';
 import 'package:driveplan/pages/my_documents.dart';
 import 'package:driveplan/pages/my_hours.dart';
-import 'package:driveplan/pages/my_messages.dart';
+import 'package:driveplan/pages/statistik.dart';
 import 'package:flutter/material.dart';
 
 class MyAccount extends StatefulWidget {
@@ -18,17 +18,20 @@ class _MyAccountState extends State<MyAccount> {
       appBar: AppBar(
         title: Text("Mein Konto"),
         centerTitle: true,
+        actions: [
+          IconButton(icon: Icon(Icons.mail), onPressed: () {  },)
+        ],
       ),
       body: ListView(
         children: [
           InkWell(
             child: Card(
               child: Column(
-                children: [Text("Nachrichten")],
+                children: [Text("Statistik")],
               ),
             ),
             onTap: () => Navigator.push(
-                context, new MaterialPageRoute(builder: (context) => MyMessages())),
+                context, new MaterialPageRoute(builder: (context) => Statistik())),
           ),
           InkWell(
             child: Card(

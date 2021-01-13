@@ -31,7 +31,8 @@ class _MyDocumentsState extends State<MyDocuments> {
   }
 
   Widget documents() {
-    return SingleChildScrollView(child: ResponsiveGridRow(children: [
+    return SingleChildScrollView(
+        child: ResponsiveGridRow(children: [
       ResponsiveGridCol(
           xs: 12,
           sm: 6,
@@ -76,6 +77,29 @@ class _MyDocumentsState extends State<MyDocuments> {
   }
 
   Widget bills() {
-    return Container();
+    return DataTable(
+      columns: [
+        DataColumn(label: Text("Identifier")),
+        DataColumn(label: Text("Zu zahlen")),
+        DataColumn(label: Text("Gezahlt")),
+      ],
+      rows: [
+        DataRow(cells: [
+          DataCell(Text("Grundgebühr")),
+          DataCell(Text("380,00€")),
+          DataCell(Text("380,00€")),
+        ]),
+        DataRow(cells: [
+          DataCell(Text("Theorie")),
+          DataCell(Text("150,00€")),
+          DataCell(Text("150,00€")),
+        ]),
+        DataRow(cells: [
+          DataCell(Text("Material")),
+          DataCell(Text("42,00€")),
+          DataCell(Text("0,00€")),
+        ])
+      ],
+    );
   }
 }
