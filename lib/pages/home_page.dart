@@ -26,8 +26,7 @@ class _HomePageState extends State<HomePage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => AdditionalTrainingPage()),
+                  MaterialPageRoute(builder: (context) => AdditionalTrainingPage()),
                 );
               },
             ),
@@ -80,26 +79,54 @@ class _HomePageState extends State<HomePage> {
                       MaterialPageRoute(builder: (context) => QuestionsPage()),
                     );
                   },
-                  child: Row(
-                    children: [
-                      Expanded(child: Text("Geführten Lernweg fortsetzen")),
-                      Icon(Icons.arrow_forward)
-                    ],
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.blue[200],
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(5),
+                          topRight: Radius.circular(5),
+                        )),
+                    height: 50,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Expanded(
+                              child: Text(
+                            "Geführten Lernweg fortsetzen",
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          )),
+                          Icon(Icons.arrow_forward)
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-                Row(
-                  children: [
-                    Text("Status: "),
-                    Image.network('https://picsum.photos/250?image=9',
-                        height: 50)
-                  ],
-                ),
-                Row(
-                  children: [
-                    Text("Fortschritt: "),
-                    Image.network('https://picsum.photos/250?image=9',
-                        height: 50)
-                  ],
+                Container(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Container(
+                          height: 50,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Text("Hinweis: "),
+                              Container(
+                                // color: Colors.red,
+                                child: Text("Prüfung nicht empfohlen"),
+                              )
+                            ],
+                          ),
+                        ),
+                        Text("Fortschritt: "),
+                        Container(color: Colors.red, child: Image(image: AssetImage('assets/Fortschritt.PNG')))
+                      ],
+                    ),
+                  ),
                 )
               ],
             ),
@@ -112,13 +139,32 @@ class _HomePageState extends State<HomePage> {
                   child: Card(
                     child: Column(
                       children: [
-                        Row(
-                          children: [
-                            Expanded(child: Text("Zusatz Training")),
-                            Icon(Icons.arrow_forward)
-                          ],
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.blue[200],
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(5),
+                                topRight: Radius.circular(5),
+                              )),
+                          height: 50,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                    child: Text("Zusatz Training",
+                                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+                                Icon(Icons.arrow_forward)
+                              ],
+                            ),
+                          ),
                         ),
-                        Text("Vertiefe dein Wissen für Theorie und Praxis")
+                        Container(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text("Vertiefe dein Wissen für Theorie und Praxis"),
+                          ),
+                        )
                       ],
                     ),
                   ),
