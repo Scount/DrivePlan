@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_grid/responsive_grid.dart';
 
 class ZusatzTraining extends StatefulWidget {
   ZusatzTraining({Key key}) : super(key: key);
@@ -53,8 +54,8 @@ class _ZusatzTrainingState extends State<ZusatzTraining> {
           dropDownValue == "Praxispakete"
               ? Expanded(child: praxisPaketeWidget())
               : (dropDownValue == "Wahrnehmungsbilder"
-                  ? Expanded(child:wahrnehmungsBilderWidget())
-                  : Expanded(child:suchbilderWidget()))
+                  ? Expanded(child: wahrnehmungsBilderWidget())
+                  : Expanded(child: suchbilderWidget()))
         ],
       ),
     );
@@ -92,35 +93,84 @@ class _ZusatzTrainingState extends State<ZusatzTraining> {
   }
 
   Widget wahrnehmungsBilderWidget() {
-    return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,),
-      itemBuilder: (BuildContext context, int index) =>
-           Padding(child: Image.network('https://picsum.photos/250?image=9', height: 50), padding: const EdgeInsets.all(5),)
+    return ResponsiveGridList(
+      desiredItemWidth: 150,
+      minSpacing: 10,
+      children: [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ].map((e) => Image.network('https://picsum.photos/250?image=9')).toList(),
     );
   }
 
   Widget suchbilderWidget() {
-    return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,),
-      itemBuilder: (BuildContext context, int index) =>
-           Padding(child: Image.network('https://picsum.photos/250?image=9', height: 50), padding: const EdgeInsets.all(5),)
+    return ResponsiveGridList(
+      desiredItemWidth: 150,
+      minSpacing: 10,
+      children: [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ].map((e) => Image.network('https://picsum.photos/250?image=8')).toList(),
     );
   }
 
   Widget theorieBody() {
-    return ListView.builder(
-      itemCount: 10,
-      itemBuilder: (context, index) => theorieCard(index),
-      shrinkWrap: true,
+    return SingleChildScrollView(
+      child: ResponsiveGridRow(
+        children: [
+          ResponsiveGridCol(child: theorieCard("Prüfungstest",""),sm: 6,),
+          ResponsiveGridCol(child: theorieCard("Lernbox","Trainiere deine falschen Fragen"),sm: 6,),
+          ResponsiveGridCol(child: theorieCard("Schwierig markierte Fragen","Du hast keine Fragen makiert"),sm: 6,),
+          ResponsiveGridCol(child: theorieCard("Variationentrainer","Trainiere Bild- und Videofragen mit je fünf verschiedenen Variationen"),sm: 6,),
+          ResponsiveGridCol(child: theorieCard("Animationstrainer","Hier findest du alle Videofragen"),sm: 6,),
+          ResponsiveGridCol(child: theorieCard("Zahlenfragen","Übe alle Zahlenfragen"),sm: 6,),
+        ]),
     );
   }
 
-  Widget theorieCard(int index) {
+  Widget theorieCard(String title, String subtitle) {
     return Card(
         child: ListTile(
-      title: Text(index.toString()),
-      subtitle: Text("Nico stinkt"),
+      title: Text(title),
+      subtitle: Text(subtitle),
       trailing: Icon(Icons.arrow_forward_ios),
+      isThreeLine: true,
     ));
   }
 }
