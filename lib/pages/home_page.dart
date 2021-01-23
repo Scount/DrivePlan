@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Text("Fortschritt: "),
-                        Container(color: Colors.red, child: Image(image: AssetImage('assets/Fortschritt.PNG')))
+                        Container(color: Colors.red, child: Image(image: AssetImage('assets/fortschritt.PNG')))
                       ],
                     ),
                   ),
