@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_grid/responsive_grid.dart';
 
 class Statistik extends StatefulWidget {
   Statistik({Key key}) : super(key: key);
@@ -14,35 +15,43 @@ class _StatistikState extends State<Statistik> {
     return DefaultTabController(
         length: 2,
         child: Scaffold(
-          appBar: AppBar(
-            title: Text("Statistik"),
-            bottom: TabBar(
-              tabs: [
-                Tab(
-                  child: Icon(Icons.bar_chart),
-                ),
-                Tab(
-                  child: Icon(Icons.playlist_add_check),
-                )
-              ],
+            appBar: AppBar(
+              title: Text("Statistik"),
+              bottom: TabBar(
+                tabs: [
+                  Tab(
+                    child: Icon(Icons.bar_chart),
+                  ),
+                  Tab(
+                    child: Icon(Icons.playlist_add_check),
+                  )
+                ],
+              ),
             ),
-          ),
-          body: TabBarView(
-              children: [fragenStatistik(), pruefungsSimulationen()]),
-        ));
+            body: new OrientationBuilder(
+              builder: (context, orientation) => TabBarView(
+                  children: [fragenStatistik(orientation), pruefungsSimulationen()]),
+            )));
   }
 
-  Widget fragenStatistik() {
-    return Column(
-      children: [
-        Expanded(child: fragenStatistikChart()),
-        Expanded(child: fragenStatistikBody())
-      ],
-    );
+  Widget fragenStatistik(Orientation orientation) {
+      if (orientation == Orientation.portrait)
+        return Column(children: [
+          Expanded(child: fragenStatistikChart()),
+          Expanded(child: fragenStatistikBody())
+        ]);
+      else
+        return Row(children: [
+          Expanded(child: fragenStatistikChart()),
+          Expanded(child: fragenStatistikBody())
+        ]);
+    
   }
 
   Widget fragenStatistikChart() {
     return Card(
+        child: Padding(
+      padding: const EdgeInsets.all(5),
       child: BarChart(BarChartData(
           alignment: BarChartAlignment.spaceAround,
           maxY: 100,
@@ -124,7 +133,7 @@ class _StatistikState extends State<Statistik> {
               ],
             ),
           ])),
-    );
+    ));
   }
 
   Widget fragenStatistikBody() {
@@ -172,25 +181,46 @@ class _StatistikState extends State<Statistik> {
   }
 
   Widget pruefungsSimulationen() {
-    return Card(child: Column(children: [
-      Text("Prüfungssimultationen"),
-      DataTable(
-        columnSpacing: 20,
-        headingRowColor: MaterialStateProperty.resolveWith<Color>((states) => Colors.grey),
-        columns: const <DataColumn>[
-          DataColumn(label: Text("Datum",style: TextStyle(fontStyle: FontStyle.italic),)),
-          DataColumn(label: Text("Klasse",style: TextStyle(fontStyle: FontStyle.italic),)),
-          DataColumn(label: Text("Fehlerpunkte",style: TextStyle(fontStyle: FontStyle.italic),)),
-          DataColumn(label: Text("Ergebnis",style: TextStyle(fontStyle: FontStyle.italic),)),
-        ], 
-        rows: const <DataRow>[
-          DataRow(cells: <DataCell>[
-            DataCell(Text("12.12.2020")),
-            DataCell(Text("B")),
-            DataCell(Text("42")),
-            DataCell(Text("Bestanden")),
-          ])
-        ])
-    ],),);
+    return Card(
+      child: Column(
+        children: [
+          Text("Prüfungssimultationen"),
+          DataTable(
+              columnSpacing: 20,
+              headingRowColor: MaterialStateProperty.resolveWith<Color>(
+                  (states) => Colors.grey),
+              columns: const <DataColumn>[
+                DataColumn(
+                    label: Text(
+                  "Datum",
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                )),
+                DataColumn(
+                    label: Text(
+                  "Klasse",
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                )),
+                DataColumn(
+                    label: Text(
+                  "Fehlerpunkte",
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                )),
+                DataColumn(
+                    label: Text(
+                  "Ergebnis",
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                )),
+              ],
+              rows: const <DataRow>[
+                DataRow(cells: <DataCell>[
+                  DataCell(Text("12.12.2020")),
+                  DataCell(Text("B")),
+                  DataCell(Text("42")),
+                  DataCell(Text("Bestanden")),
+                ])
+              ])
+        ],
+      ),
+    );
   }
 }

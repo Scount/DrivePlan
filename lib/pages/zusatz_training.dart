@@ -37,20 +37,29 @@ class _ZusatzTrainingState extends State<ZusatzTraining> {
     return Container(
       child: Column(
         children: [
-          DropdownButton(
-            value: dropDownValue,
-            items: <String>["Praxispakete", "Wahrnehmungsbilder", "Suchbilder"]
-                .map((e) => DropdownMenuItem(
-                      child: Text(e),
-                      value: e,
-                    ))
-                .toList(),
-            onChanged: (value) {
-              setState(() {
-                dropDownValue = value;
-              });
-            },
-          ),
+          Card(
+              child: Padding(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                    value: dropDownValue,
+                    icon: Icon(Icons.arrow_drop_down),
+                    items: <String>[
+                      "Praxispakete",
+                      "Wahrnehmungsbilder",
+                      "Suchbilder"
+                    ]
+                        .map((e) => DropdownMenuItem(
+                              child: Text(e),
+                              value: e,
+                            ))
+                        .toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        dropDownValue = value;
+                      });
+                    },
+                  )))),
           dropDownValue == "Praxispakete"
               ? Expanded(child: praxisPaketeWidget())
               : (dropDownValue == "Wahrnehmungsbilder"
@@ -65,7 +74,7 @@ class _ZusatzTrainingState extends State<ZusatzTraining> {
     return ListView.builder(
       shrinkWrap: true,
       itemCount: 10,
-      itemBuilder: (context, index) => ExpansionTile(
+      itemBuilder: (context, index) => Card(child:ExpansionTile(
         title: Text("Test"),
         children: [
           Row(
@@ -88,14 +97,14 @@ class _ZusatzTrainingState extends State<ZusatzTraining> {
             ],
           )
         ],
-      ),
+      )),
     );
   }
 
   Widget wahrnehmungsBilderWidget() {
     return ResponsiveGridList(
       desiredItemWidth: 150,
-      minSpacing: 10,
+      minSpacing: 5,
       children: [
         1,
         2,
@@ -117,14 +126,14 @@ class _ZusatzTrainingState extends State<ZusatzTraining> {
         18,
         19,
         20
-      ].map((e) => Image.network('https://picsum.photos/250?image=9')).toList(),
+      ].map((e) => Card(elevation: 5,child:Padding(padding: const EdgeInsets.all(5),child:Image.network('https://picsum.photos/250?image=9')),)).toList(),
     );
   }
 
   Widget suchbilderWidget() {
     return ResponsiveGridList(
       desiredItemWidth: 150,
-      minSpacing: 10,
+      minSpacing: 5,
       children: [
         1,
         2,
@@ -146,21 +155,41 @@ class _ZusatzTrainingState extends State<ZusatzTraining> {
         18,
         19,
         20
-      ].map((e) => Image.network('https://picsum.photos/250?image=8')).toList(),
+      ].map((e) => Card(elevation: 5,child:Padding(padding: const EdgeInsets.all(5),child:Image.network('https://picsum.photos/250?image=4')),)).toList(),
     );
   }
 
   Widget theorieBody() {
     return SingleChildScrollView(
-      child: ResponsiveGridRow(
-        children: [
-          ResponsiveGridCol(child: theorieCard("Prüfungstest",""),sm: 6,),
-          ResponsiveGridCol(child: theorieCard("Lernbox","Trainiere deine falschen Fragen"),sm: 6,),
-          ResponsiveGridCol(child: theorieCard("Schwierig markierte Fragen","Du hast keine Fragen makiert"),sm: 6,),
-          ResponsiveGridCol(child: theorieCard("Variationentrainer","Trainiere Bild- und Videofragen mit je fünf verschiedenen Variationen"),sm: 6,),
-          ResponsiveGridCol(child: theorieCard("Animationstrainer","Hier findest du alle Videofragen"),sm: 6,),
-          ResponsiveGridCol(child: theorieCard("Zahlenfragen","Übe alle Zahlenfragen"),sm: 6,),
-        ]),
+      child: ResponsiveGridRow(children: [
+        ResponsiveGridCol(
+          child: theorieCard("Prüfungstest", ""),
+          sm: 6,
+        ),
+        ResponsiveGridCol(
+          child: theorieCard("Lernbox", "Trainiere deine falschen Fragen"),
+          sm: 6,
+        ),
+        ResponsiveGridCol(
+          child: theorieCard(
+              "Schwierig markierte Fragen", "Du hast keine Fragen makiert"),
+          sm: 6,
+        ),
+        ResponsiveGridCol(
+          child: theorieCard("Variationentrainer",
+              "Trainiere Bild- und Videofragen mit je fünf verschiedenen Variationen"),
+          sm: 6,
+        ),
+        ResponsiveGridCol(
+          child: theorieCard(
+              "Animationstrainer", "Hier findest du alle Videofragen"),
+          sm: 6,
+        ),
+        ResponsiveGridCol(
+          child: theorieCard("Zahlenfragen", "Übe alle Zahlenfragen"),
+          sm: 6,
+        ),
+      ]),
     );
   }
 
