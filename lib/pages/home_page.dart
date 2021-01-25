@@ -1,4 +1,4 @@
-import 'package:driveplan/pages/additional_training_page.dart';
+import 'package:driveplan/pages/additional_material.dart';
 import 'package:driveplan/pages/statistik.dart';
 import 'package:driveplan/pages/zusatz_training.dart';
 import 'package:driveplan/pages/my_account_page.dart';
@@ -30,8 +30,8 @@ class _HomePageState extends State<HomePage> {
 
   Widget body() {
     return ResponsiveGridRow(children: [
-      ResponsiveGridCol(child: questions(),sm:6),
-      ausklappen ? ResponsiveGridCol(child: zusatzTraining(), sm:6) : Container()
+      ResponsiveGridCol(child: questions(), sm: 6),
+      ausklappen ? ResponsiveGridCol(child: zusatzTraining(), sm: 6) : Container()
     ]);
   }
 
@@ -61,8 +61,7 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                         child: Text(
                       "Geführten Lernweg fortsetzen",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     )),
                     Icon(Icons.arrow_forward)
                   ],
@@ -71,31 +70,53 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Container(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Container(
-                    height: 50,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Container(
+                  color: Colors.red[300],
+                  height: 50,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Text("Hinweis: "),
+                        Icon(Icons.warning),
                         Container(
-                          // color: Colors.red,
-                          child: Text("Prüfung nicht empfohlen"),
+                          width: 10,
+                        ),
+                        Center(child: Text("Hinweis: ")),
+                        Center(
+                          child: Container(
+                            // color: Colors.red,
+                            child: Text("Prüfung nicht empfohlen"),
+                          ),
                         )
                       ],
                     ),
                   ),
-                  Text("Fortschritt: "),
-                  Container(
-                      color: Colors.red,
-                      child: Image(image: AssetImage('assets/fortschritt.PNG')))
-                ],
-              ),
+                ),
+                Container(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Fortschritt: "),
+                        Container(
+                          height: 10,
+                        ),
+                        Container(color: Colors.red, child: Image(image: AssetImage('assets/fortschritt.PNG')))
+                      ],
+                    ),
+                  ),
+                )
+              ],
             ),
           )
         ],
@@ -106,8 +127,7 @@ class _HomePageState extends State<HomePage> {
   Widget zusatzTraining() {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(
-            new MaterialPageRoute(builder: (context) => ZusatzTraining()));
+        Navigator.of(context).push(new MaterialPageRoute(builder: (context) => ZusatzTraining()));
       },
       child: Card(
         child: Column(
@@ -125,9 +145,7 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   children: [
                     Expanded(
-                        child: Text("Zusatz Training",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold))),
+                        child: Text("Zusatz Training", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
                     Icon(Icons.arrow_forward)
                   ],
                 ),
@@ -154,8 +172,7 @@ class _HomePageState extends State<HomePage> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => AdditionalTrainingPage()),
+                MaterialPageRoute(builder: (context) => AdditionalTrainingPage()),
               );
             },
           ),
