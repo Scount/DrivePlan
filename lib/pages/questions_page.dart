@@ -12,17 +12,25 @@ class _QuestionsPageState extends State<QuestionsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Questions"),
+        title: Text("Fragen"),
       ),
-      body: OrientationBuilder(builder:(context,orientation) => body(orientation)),
+      body: OrientationBuilder(
+          builder: (context, orientation) => body(orientation)),
     );
   }
 
   Widget body(Orientation orientation) {
-    if(orientation == Orientation.portrait)
-      return Column(children: [question(),answers(),navigation()],);
+    if (orientation == Orientation.portrait)
+      return Column(
+        children: [question(), answers(), navigation()],
+      );
     else
-      return Column(children: [Expanded(child:Row(children:[question(),answers()])),navigation()],);
+      return Column(
+        children: [
+          Expanded(child: Row(children: [question(), answers()])),
+          navigation()
+        ],
+      );
   }
 
   Widget question() {
@@ -84,33 +92,50 @@ class _QuestionsPageState extends State<QuestionsPage> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                children: [
-                  Checkbox(value: false, onChanged: null),
-                  Expanded(
-                    child: Text(
-                      "Sie schätzen die Geschwindigkeit von Fahrzeigen oft falsch ein",
-                    ),
-                  )
-                ],
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Row(
+                  children: [
+                    Checkbox(value: false, onChanged: null),
+                    Expanded(
+                      child: Text(
+                        "Sie schätzen die Geschwindigkeit von Fahrzeigen oft falsch ein",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    )
+                  ],
+                ),
               ),
-              Row(
-                children: [
-                  Checkbox(value: false, onChanged: null),
-                  Expanded(
-                    child: Text(
-                      "Sie reagieren oft langsamer und sind weniger beweglich",
-                    ),
-                  )
-                ],
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Row(
+                  children: [
+                    Checkbox(value: false, onChanged: null),
+                    Expanded(
+                      child: Text(
+                        "Sie reagieren oft langsamer und sind weniger beweglich",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    )
+                  ],
+                ),
               ),
-              Row(
-                children: [
-                  Checkbox(value: false, onChanged: null),
-                  Expanded(child: Text("Sie sehen und hören oft schlechte"))
-                ],
-              )
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Row(
+                  children: [
+                    Checkbox(value: false, onChanged: null),
+                    Expanded(
+                      child: Text(
+                        "Sie sehen und hören oft schlechte",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
         ),
