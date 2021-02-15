@@ -22,6 +22,12 @@ class _HomePageState extends State<HomePage> {
       drawer: drawer(),
       appBar: AppBar(
         title: Text("Fahren Lernen"),
+        actions: [
+          IconButton(
+              icon: Icon(Icons.account_circle),
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => MyAccount())))
+        ],
         centerTitle: true,
       ),
       body: body(),
@@ -31,7 +37,9 @@ class _HomePageState extends State<HomePage> {
   Widget body() {
     return ResponsiveGridRow(children: [
       ResponsiveGridCol(child: questions(), sm: 6),
-      ausklappen ? ResponsiveGridCol(child: zusatzTraining(), sm: 6) : Container()
+      ausklappen
+          ? ResponsiveGridCol(child: zusatzTraining(), sm: 6)
+          : Container()
     ]);
   }
 
@@ -61,7 +69,8 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                         child: Text(
                       "Geführten Lernweg fortsetzen",
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     )),
                     Icon(Icons.arrow_forward)
                   ],
@@ -111,7 +120,10 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           height: 10,
                         ),
-                        Container(color: Colors.red, child: Image(image: AssetImage('assets/fortschritt.PNG')))
+                        Container(
+                            color: Colors.red,
+                            child: Image(
+                                image: AssetImage('assets/fortschritt.PNG')))
                       ],
                     ),
                   ),
@@ -127,7 +139,8 @@ class _HomePageState extends State<HomePage> {
   Widget zusatzTraining() {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(new MaterialPageRoute(builder: (context) => ZusatzTraining()));
+        Navigator.of(context).push(
+            new MaterialPageRoute(builder: (context) => ZusatzTraining()));
       },
       child: Card(
         child: Column(
@@ -145,7 +158,9 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   children: [
                     Expanded(
-                        child: Text("Zusatz Training", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+                        child: Text("Zusatz Training",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold))),
                     Icon(Icons.arrow_forward)
                   ],
                 ),
@@ -172,16 +187,8 @@ class _HomePageState extends State<HomePage> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AdditionalTrainingPage()),
-              );
-            },
-          ),
-          ListTile(
-            title: Text("Mein Konto"),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MyAccount()),
+                MaterialPageRoute(
+                    builder: (context) => AdditionalTrainingPage()),
               );
             },
           ),
