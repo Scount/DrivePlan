@@ -12,7 +12,16 @@ class _QuestionsPageState extends State<QuestionsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Fragen"),
+        title: Text("Kategorie: B"),
+        bottom: PreferredSize(
+          child: Padding(
+              padding: const EdgeInsets.only(bottom: 5),
+              child: Text(
+                "Frage: 42/100 - Punkte: 5",
+                style: TextStyle(color: Colors.white),
+              )),
+          preferredSize: new Size.fromHeight(0),
+        ),
       ),
       body: OrientationBuilder(
           builder: (context, orientation) => body(orientation)),
@@ -149,10 +158,18 @@ class _QuestionsPageState extends State<QuestionsPage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          IconButton(
-              icon: Icon(
-                Icons.arrow_back,
-                color: Colors.white,
+          MaterialButton(
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                  ),
+                  Text(
+                    " 41",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
               ),
               onPressed: () {}),
           IconButton(
@@ -161,10 +178,18 @@ class _QuestionsPageState extends State<QuestionsPage> {
                 color: Colors.white,
               ),
               onPressed: () {}),
-          IconButton(
-              icon: Icon(
-                Icons.arrow_forward,
-                color: Colors.white,
+          MaterialButton(
+              child: Row(
+                children: [
+                  Text(
+                    "43 ",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Icon(
+                    Icons.arrow_forward,
+                    color: Colors.white,
+                  ),
+                ],
               ),
               onPressed: () {})
         ],
