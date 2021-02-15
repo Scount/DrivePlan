@@ -1,4 +1,5 @@
 import 'package:driveplan/pages/home_page.dart';
+import 'package:driveplan/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
               centerTitle: true,
               iconTheme: IconThemeData(color: Colors.white)),
           scaffoldBackgroundColor: Colors.grey[400]),
-      home: HomePage(),
+      home: LoginPage(),
     );
   }
 }
