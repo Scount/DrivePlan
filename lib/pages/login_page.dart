@@ -12,6 +12,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue[800],
       body: Center(
         child: Container(
           width: 300,
@@ -20,20 +21,25 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: Text("Bitte melden Sie sich mit ihrem Code an, den Sie von der Fahrschule bekommen haben"),
-              ),
-              TextField(
-                textAlign: TextAlign.center,
-                decoration: InputDecoration(
-                  border: new OutlineInputBorder(borderSide: new BorderSide(color: Colors.teal)),
+                child: Text(
+                  "Bitte melden Sie sich mit ihrem Code an, den Sie von der Fahrschule bekommen haben",
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
-              OutlinedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
-                },
-                child: Text("Login"),
-              )
+              TextField(
+                style: TextStyle(color: Colors.white),
+                textAlign: TextAlign.center,
+                decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  focusColor: Colors.white,
+                  hoverColor: Colors.white,
+                  border: new OutlineInputBorder(borderSide: new BorderSide(color: Colors.white)),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage())),
+                child: Text('Login'),
+              ),
             ],
           ),
         ),

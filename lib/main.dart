@@ -36,8 +36,9 @@ class MyApp extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
             ),
           ),
-          outlinedButtonTheme: OutlinedButtonThemeData(
-            style: OutlinedButton.styleFrom(backgroundColor: Colors.blue[700]),
+          buttonTheme: ButtonThemeData(
+            buttonColor: Colors.deepPurple, //  <-- dark color
+            textTheme: ButtonTextTheme.primary, //  <-- this auto selects the right color
           ),
           appBarTheme: AppBarTheme(
               textTheme: TextTheme(
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
               ),
               centerTitle: true,
               iconTheme: IconThemeData(color: Colors.white)),
-          scaffoldBackgroundColor: Colors.white),
+          scaffoldBackgroundColor: Colors.grey[400]),
       home: SplashScreen(),
     );
   }
