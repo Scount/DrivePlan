@@ -1,5 +1,6 @@
 import 'package:driveplan/pages/home_page.dart';
 import 'package:driveplan/pages/login_page.dart';
+import 'package:driveplan/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -35,6 +36,9 @@ class MyApp extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
             ),
           ),
+          outlinedButtonTheme: OutlinedButtonThemeData(
+            style: OutlinedButton.styleFrom(backgroundColor: Colors.blue[700]),
+          ),
           appBarTheme: AppBarTheme(
               textTheme: TextTheme(
                 headline6: TextStyle(
@@ -45,8 +49,8 @@ class MyApp extends StatelessWidget {
               ),
               centerTitle: true,
               iconTheme: IconThemeData(color: Colors.white)),
-          scaffoldBackgroundColor: Colors.grey[400]),
-      home: LoginPage(),
+          scaffoldBackgroundColor: Colors.white),
+      home: SplashScreen(),
     );
   }
 }

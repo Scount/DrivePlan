@@ -18,12 +18,14 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Padding(padding: const EdgeInsets.all(10),child:Text("Bitte melden Sie sich mit ihrem Code an, den Sie von der Fahrschule bekommen haben"),),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text("Bitte melden Sie sich mit ihrem Code an, den Sie von der Fahrschule bekommen haben"),
+              ),
               TextField(
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
-                  border: new OutlineInputBorder(
-                      borderSide: new BorderSide(color: Colors.teal)),
+                  border: new OutlineInputBorder(borderSide: new BorderSide(color: Colors.teal)),
                 ),
               ),
               OutlinedButton(
