@@ -38,19 +38,21 @@ class _HomePageState extends State<HomePage> {
             onSelected: (value) {
               switch (value) {
                 case Menu.materialien:
-                Navigator.pushNamed(context, AdditionalTrainingPage.routeName);
+                  Navigator.pushNamed(
+                      context, AdditionalTrainingPage.routeName);
                   break;
                 case Menu.einstellungen:
-                Navigator.pushNamed(context, SettingPage.routeName);
+                  Navigator.pushNamed(context, SettingPage.routeName);
                   break;
                 case Menu.impressum:
-                Navigator.pushNamed(context, Impressum.routeName);
+                  Navigator.pushNamed(context, Impressum.routeName);
                   break;
                 case Menu.hilfe:
-                Navigator.pushNamed(context, ZusatzTraining.routeName);
+                  Navigator.pushNamed(context, ZusatzTraining.routeName);
                   break;
                 case Menu.ausloggen:
-                  Navigator.popUntil(context, (route) => route.settings.name == LoginPage.routeName);
+                  Navigator.popUntil(context,
+                      (route) => route.settings.name == LoginPage.routeName);
                   break;
                 default:
               }
@@ -165,13 +167,11 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text("Fortschritt: "),
-                        Container(
-                          height: 10,
+                        LinearProgressIndicator(
+                          value: .3,
+                          valueColor:
+                              AlwaysStoppedAnimation<Color>(Colors.orange),
                         ),
-                        Container(
-                            color: Colors.red,
-                            child: Image(
-                                image: AssetImage('assets/fortschritt.PNG')))
                       ],
                     ),
                   ),
@@ -228,9 +228,7 @@ class _HomePageState extends State<HomePage> {
   Widget drawer() {
     return Drawer(
       child: ListView(
-        children: [
-          
-        ],
+        children: [],
       ),
     );
   }
