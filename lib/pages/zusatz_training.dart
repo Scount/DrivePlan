@@ -70,10 +70,10 @@ class _ZusatzTrainingState extends State<ZusatzTraining> {
 
   Map<String, List<String>> praxisPaketeInhalt = {
     "Autobahn": ["Einfahren", "Ausfahren", "Überholen"],
-    "Abbiegen": ["Rechtsabbiegen", "Linksabbiegen", "Mehrspurig", "Fahrstreigenwechsel"],
+    "Abbiegen": ["Rechtsabbiegen", "Linksabbiegen", "Mehrspurig"],
     "Öffentliche Verkehrsmittel": ["Haltestellen"],
     "Fußgängerüberwege/Bahnübergänge": ["Fußgängerüberwege", "Bahnübergänge", "Wartepflicht"],
-    "Vorfahrt": ["rechts vor links", "Vorfahrtregelnde Verkehrszeichen", "abknickende Vorfahrtsstraße"]
+    "Vorfahrt": ["rechts vor links", "Verkehrszeichen", "Vorfahrtsstraße"]
   };
 
   Widget praxisPaketeWidget() {
@@ -96,20 +96,6 @@ class _ZusatzTrainingState extends State<ZusatzTraining> {
           children: [
             Row(
               children: commentWidgets,
-              /* children: [
-              Padding(
-                child: Image.network('https://picsum.photos/250?image=9', height: 50),
-                padding: const EdgeInsets.all(8),
-              ),
-              Padding(
-                child: Image.network('https://picsum.photos/250?image=9', height: 50),
-                padding: const EdgeInsets.all(8),
-              ),
-              Padding(
-                child: Image.network('https://picsum.photos/250?image=9', height: 50),
-                padding: const EdgeInsets.all(8),
-              ),
-            ],*/
             )
           ],
         ));
