@@ -5,6 +5,8 @@ import 'package:responsive_grid/responsive_grid.dart';
 class Statistik extends StatefulWidget {
   Statistik({Key key}) : super(key: key);
 
+    static String routeName = '/statistik';
+
   @override
   _StatistikState createState() => _StatistikState();
 }

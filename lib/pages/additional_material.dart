@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class AdditionalTrainingPage extends StatefulWidget {
   AdditionalTrainingPage({Key key}) : super(key: key);
 
+static String routeName = '/additional_training';
+
   @override
   _AdditionalTrainingPageState createState() => _AdditionalTrainingPageState();
 }

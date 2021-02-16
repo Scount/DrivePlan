@@ -1,6 +1,15 @@
+import 'package:driveplan/pages/additional_material.dart';
 import 'package:driveplan/pages/home_page.dart';
 import 'package:driveplan/pages/login_page.dart';
+import 'package:driveplan/pages/my_account_page.dart';
+import 'package:driveplan/pages/my_calendar.dart';
+import 'package:driveplan/pages/my_documents.dart';
+import 'package:driveplan/pages/my_hours.dart';
+import 'package:driveplan/pages/questions_page.dart';
+import 'package:driveplan/pages/setting_page.dart';
 import 'package:driveplan/pages/splash_screen.dart';
+import 'package:driveplan/pages/statistik.dart';
+import 'package:driveplan/pages/zusatz_training.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -38,7 +47,8 @@ class MyApp extends StatelessWidget {
           ),
           buttonTheme: ButtonThemeData(
             buttonColor: Colors.deepPurple, //  <-- dark color
-            textTheme: ButtonTextTheme.primary, //  <-- this auto selects the right color
+            textTheme: ButtonTextTheme
+                .primary, //  <-- this auto selects the right color
           ),
           appBarTheme: AppBarTheme(
               textTheme: TextTheme(
@@ -51,7 +61,21 @@ class MyApp extends StatelessWidget {
               centerTitle: true,
               iconTheme: IconThemeData(color: Colors.white)),
           scaffoldBackgroundColor: Colors.grey[400]),
-      home: SplashScreen(),
+      routes: {
+        '/': (context) => SplashScreen(),
+        LoginPage.routeName: (context) => LoginPage(),
+        HomePage.routeName: (context) => HomePage(),
+        QuestionsPage.routeName: (context) => QuestionsPage(),
+        MyAccount.routeName: (context) => MyAccount(),
+        MyCalendar.routeName: (context) => MyCalendar(),
+        MyDocuments.routeName: (context) => MyDocuments(),
+        MyHours.routeName: (context) => MyHours(),
+        SettingPage.routeName: (context) => SettingPage(),
+        Statistik.routeName: (context) => Statistik(),
+        ZusatzTraining.routeName: (context) => ZusatzTraining(),
+        AdditionalTrainingPage.routeName: (context) => AdditionalTrainingPage(),
+      },
+      initialRoute: '/',
     );
   }
 }

@@ -4,6 +4,8 @@ import 'package:responsive_grid/responsive_grid.dart';
 class ZusatzTraining extends StatefulWidget {
   ZusatzTraining({Key key}) : super(key: key);
 
+    static String routeName = '/zusatz_training';
+
   @override
   _ZusatzTrainingState createState() => _ZusatzTrainingState();
 }

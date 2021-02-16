@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 class LoginPage extends StatefulWidget {
   LoginPage({Key key}) : super(key: key);
 
+  static String routeName = '/login';
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -33,11 +35,13 @@ class _LoginPageState extends State<LoginPage> {
                   fillColor: Colors.white,
                   focusColor: Colors.white,
                   hoverColor: Colors.white,
-                  border: new OutlineInputBorder(borderSide: new BorderSide(color: Colors.white)),
+                  border: new OutlineInputBorder(
+                      borderSide: new BorderSide(color: Colors.white)),
                 ),
               ),
               ElevatedButton(
-                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage())),
+                onPressed: () =>
+                    Navigator.pushNamed(context, HomePage.routeName),
                 child: Text('Login'),
               ),
             ],

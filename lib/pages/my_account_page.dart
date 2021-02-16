@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 class MyAccount extends StatefulWidget {
   MyAccount({Key key}) : super(key: key);
 
+  static String routeName = '/my_account';
+
   @override
   _MyAccountState createState() => _MyAccountState();
 }
@@ -43,7 +45,7 @@ class _MyAccountState extends State<MyAccount> {
                 ),
               ),
             ),
-            onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => Statistik())),
+            onTap: () => Navigator.pushNamed(context, Statistik.routeName),
           ),
           InkWell(
             child: Card(
@@ -61,7 +63,7 @@ class _MyAccountState extends State<MyAccount> {
                 ),
               ),
             ),
-            onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => MyHours())),
+            onTap: () => Navigator.pushNamed(context, MyHours.routeName),
           ),
           InkWell(
             child: Card(
@@ -79,7 +81,7 @@ class _MyAccountState extends State<MyAccount> {
                 ),
               ),
             ),
-            onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => MyDocuments())),
+            onTap: () => Navigator.pushNamed(context, MyDocuments.routeName),
           ),
           InkWell(
             child: Card(
@@ -97,7 +99,7 @@ class _MyAccountState extends State<MyAccount> {
                 ),
               ),
             ),
-            onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => MyCalendar())),
+            onTap: () => Navigator.pushNamed(context, MyCalendar.routeName),
           ),
         ],
       ),

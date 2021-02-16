@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class MyHours extends StatefulWidget {
   MyHours({Key key}) : super(key: key);
 
+    static String routeName = '/my_hours';
+
   @override
   _MyHoursState createState() => _MyHoursState();
 }

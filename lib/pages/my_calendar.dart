@@ -4,6 +4,8 @@ import 'package:table_calendar/table_calendar.dart';
 class MyCalendar extends StatefulWidget {
   MyCalendar({Key key}) : super(key: key);
 
+    static String routeName = '/my_calendar';
+
   @override
   _MyCalendarState createState() => _MyCalendarState();
 }

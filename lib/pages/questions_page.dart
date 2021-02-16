@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 
 class QuestionsPage extends StatefulWidget {
+
+      static String routeName = '/questions';
+
   @override
   _QuestionsPageState createState() => _QuestionsPageState();
 }

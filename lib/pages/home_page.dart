@@ -1,4 +1,5 @@
 import 'package:driveplan/pages/additional_material.dart';
+import 'package:driveplan/pages/login_page.dart';
 import 'package:driveplan/pages/statistik.dart';
 import 'package:driveplan/pages/zusatz_training.dart';
 import 'package:driveplan/pages/my_account_page.dart';
@@ -7,8 +8,12 @@ import 'package:driveplan/pages/setting_page.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 
+enum Menu { materialien, einstellungen, impressum, hilfe, ausloggen }
+
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
+
+  static String routeName = '/home';
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -16,6 +21,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool ausklappen = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,9 +30,53 @@ class _HomePageState extends State<HomePage> {
         title: Text("Fahren Lernen"),
         actions: [
           IconButton(
-              icon: Icon(Icons.account_circle),
-              onPressed: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MyAccount())))
+              icon: Icon(Icons.settings),
+              onPressed: () =>
+                  Navigator.pushNamed(context, MyAccount.routeName)),
+          PopupMenuButton(
+            onSelected: (value) {
+              switch (value) {
+                case Menu.materialien:
+                Navigator.pushNamed(context, AdditionalTrainingPage.routeName);
+                  break;
+                case Menu.einstellungen:
+                Navigator.pushNamed(context, SettingPage.routeName);
+                  break;
+                case Menu.impressum:
+                Navigator.pushNamed(context, ZusatzTraining.routeName);
+                  break;
+                case Menu.hilfe:
+                Navigator.pushNamed(context, ZusatzTraining.routeName);
+                  break;
+                case Menu.ausloggen:
+                  Navigator.popUntil(context, (route) => route.settings.name == LoginPage.routeName);
+                  break;
+                default:
+              }
+            },
+            itemBuilder: (context) => <PopupMenuEntry<Menu>>[
+              const PopupMenuItem(
+                value: Menu.materialien,
+                child: Text("Zusatz Materialien"),
+              ),
+              const PopupMenuItem(
+                value: Menu.einstellungen,
+                child: Text("Einstellungen"),
+              ),
+              const PopupMenuItem(
+                value: Menu.hilfe,
+                child: Text("Hilfe"),
+              ),
+              const PopupMenuItem(
+                value: Menu.impressum,
+                child: Text("Impressum"),
+              ),
+              const PopupMenuItem(
+                value: Menu.ausloggen,
+                child: Text("Ausloggen"),
+              ),
+            ],
+          ),
         ],
         centerTitle: true,
       ),
@@ -49,10 +99,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => QuestionsPage()),
-              );
+              Navigator.pushNamed(context, QuestionsPage.routeName);
             },
             child: Container(
               decoration: BoxDecoration(
@@ -139,8 +186,7 @@ class _HomePageState extends State<HomePage> {
   Widget zusatzTraining() {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(
-            new MaterialPageRoute(builder: (context) => ZusatzTraining()));
+        Navigator.pushNamed(context, ZusatzTraining.routeName);
       },
       child: Card(
         child: Column(
@@ -182,37 +228,7 @@ class _HomePageState extends State<HomePage> {
     return Drawer(
       child: ListView(
         children: [
-          ListTile(
-            title: Text("Zusatz Materialien"),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => AdditionalTrainingPage()),
-              );
-            },
-          ),
-          ListTile(
-            title: Text("Einstellungen"),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SettingPage()),
-              );
-            },
-          ),
-          ListTile(
-            title: Text("Impressum"),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text("Hilfe und Feedback"),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text("Abmelden"),
-            onTap: () {},
-          )
+          
         ],
       ),
     );

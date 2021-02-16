@@ -4,6 +4,8 @@ import 'package:responsive_grid/responsive_grid.dart';
 class MyDocuments extends StatefulWidget {
   MyDocuments({Key key}) : super(key: key);
 
+  static String routeName = '/my_documents';
+
   @override
   _MyDocumentsState createState() => _MyDocumentsState();
 }

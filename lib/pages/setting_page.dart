@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class SettingPage extends StatefulWidget {
   SettingPage({Key key}) : super(key: key);
 
+    static String routeName = '/settings';
+
   @override
   _SettingPageState createState() => _SettingPageState();
 }
