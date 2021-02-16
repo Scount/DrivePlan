@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Impressum extends StatefulWidget {
+
+  static String routeName = '/impressum';
+
   @override
   _ImpressumState createState() => _ImpressumState();
 }

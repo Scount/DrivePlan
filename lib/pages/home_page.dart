@@ -1,4 +1,5 @@
 import 'package:driveplan/pages/additional_material.dart';
+import 'package:driveplan/pages/impressum.dart';
 import 'package:driveplan/pages/login_page.dart';
 import 'package:driveplan/pages/statistik.dart';
 import 'package:driveplan/pages/zusatz_training.dart';
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                 Navigator.pushNamed(context, SettingPage.routeName);
                   break;
                 case Menu.impressum:
-                Navigator.pushNamed(context, ZusatzTraining.routeName);
+                Navigator.pushNamed(context, Impressum.routeName);
                   break;
                 case Menu.hilfe:
                 Navigator.pushNamed(context, ZusatzTraining.routeName);

@@ -1,5 +1,6 @@
 import 'package:driveplan/pages/additional_material.dart';
 import 'package:driveplan/pages/home_page.dart';
+import 'package:driveplan/pages/impressum.dart';
 import 'package:driveplan/pages/login_page.dart';
 import 'package:driveplan/pages/my_account_page.dart';
 import 'package:driveplan/pages/my_calendar.dart';
@@ -74,6 +75,7 @@ class MyApp extends StatelessWidget {
         Statistik.routeName: (context) => Statistik(),
         ZusatzTraining.routeName: (context) => ZusatzTraining(),
         AdditionalTrainingPage.routeName: (context) => AdditionalTrainingPage(),
+        Impressum.routeName: (context) => Impressum(),
       },
       initialRoute: '/',
     );
