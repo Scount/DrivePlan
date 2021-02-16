@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
         title: Text("Fahren Lernen"),
         actions: [
           IconButton(
-              icon: Icon(Icons.settings),
+              icon: Icon(Icons.account_circle),
               onPressed: () =>
                   Navigator.pushNamed(context, MyAccount.routeName)),
           PopupMenuButton(
