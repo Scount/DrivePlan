@@ -35,12 +35,15 @@ class _HomePageState extends State<HomePage> {
         title: Text("Fahren Lernen"),
         actions: [
           IconButton(
-              icon: Icon(Icons.account_circle), onPressed: () => Navigator.pushNamed(context, MyAccount.routeName)),
+              icon: Icon(Icons.account_circle),
+              onPressed: () =>
+                  Navigator.pushNamed(context, MyAccount.routeName)),
           PopupMenuButton(
             onSelected: (value) {
               switch (value) {
                 case Menu.materialien:
-                  Navigator.pushNamed(context, AdditionalTrainingPage.routeName);
+                  Navigator.pushNamed(
+                      context, AdditionalTrainingPage.routeName);
                   break;
                 case Menu.einstellungen:
                   Navigator.pushNamed(context, SettingPage.routeName);
@@ -91,7 +94,9 @@ class _HomePageState extends State<HomePage> {
   Widget body() {
     return ResponsiveGridRow(children: [
       ResponsiveGridCol(child: questions(), sm: 6),
-      ausklappen ? ResponsiveGridCol(child: zusatzTraining(), sm: 6) : Container()
+      ausklappen
+          ? ResponsiveGridCol(child: zusatzTraining(), sm: 6)
+          : Container()
     ]);
   }
 
@@ -118,7 +123,8 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                         child: Text(
                       "Geführten Lernweg fortsetzen",
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     )),
                     Icon(Icons.arrow_forward)
                   ],
@@ -132,29 +138,6 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Container(
-                  color: Colors.red[300],
-                  height: 50,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Icon(Icons.warning),
-                        Container(
-                          width: 10,
-                        ),
-                        Center(child: Text("Hinweis: ")),
-                        Center(
-                          child: Container(
-                            // color: Colors.red,
-                            child: Text("Prüfung nicht empfohlen"),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
                   height: 10,
                 ),
                 Padding(
@@ -164,11 +147,13 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Fortschritt: "),
+                        Padding(padding: const EdgeInsets.only(bottom:5),child: Text("Fortschritt: ",style: TextStyle(fontWeight: FontWeight.bold),),),
                         LinearProgressIndicator(
-                          value: .3,
+                          value: .6,
                           valueColor:
-                              AlwaysStoppedAnimation<Color>(Colors.orange),
+                              AlwaysStoppedAnimation<Color>(Colors.yellowAccent),
+                          backgroundColor: Colors.grey,
+                          minHeight: 20,
                         ),
                       ],
                     ),
@@ -203,7 +188,9 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   children: [
                     Expanded(
-                        child: Text("Zusatz Training", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+                        child: Text("Zusatz Training",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold))),
                     Icon(Icons.arrow_forward)
                   ],
                 ),
