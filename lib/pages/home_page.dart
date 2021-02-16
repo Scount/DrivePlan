@@ -22,7 +22,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool ausklappen = true;
-
+  bool autobahn = false;
+  bool abbiegen = false;
+  bool verkehrsmittel = false;
+  bool fussgaengerueberwege = false;
+  bool vorfahrt = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,15 +35,12 @@ class _HomePageState extends State<HomePage> {
         title: Text("Fahren Lernen"),
         actions: [
           IconButton(
-              icon: Icon(Icons.account_circle),
-              onPressed: () =>
-                  Navigator.pushNamed(context, MyAccount.routeName)),
+              icon: Icon(Icons.account_circle), onPressed: () => Navigator.pushNamed(context, MyAccount.routeName)),
           PopupMenuButton(
             onSelected: (value) {
               switch (value) {
                 case Menu.materialien:
-                  Navigator.pushNamed(
-                      context, AdditionalTrainingPage.routeName);
+                  Navigator.pushNamed(context, AdditionalTrainingPage.routeName);
                   break;
                 case Menu.einstellungen:
                   Navigator.pushNamed(context, SettingPage.routeName);
@@ -90,9 +91,7 @@ class _HomePageState extends State<HomePage> {
   Widget body() {
     return ResponsiveGridRow(children: [
       ResponsiveGridCol(child: questions(), sm: 6),
-      ausklappen
-          ? ResponsiveGridCol(child: zusatzTraining(), sm: 6)
-          : Container()
+      ausklappen ? ResponsiveGridCol(child: zusatzTraining(), sm: 6) : Container()
     ]);
   }
 
@@ -119,8 +118,7 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                         child: Text(
                       "Geführten Lernweg fortsetzen",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     )),
                     Icon(Icons.arrow_forward)
                   ],
@@ -205,9 +203,7 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   children: [
                     Expanded(
-                        child: Text("Zusatz Training",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold))),
+                        child: Text("Zusatz Training", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
                     Icon(Icons.arrow_forward)
                   ],
                 ),
@@ -227,8 +223,207 @@ class _HomePageState extends State<HomePage> {
 
   Widget drawer() {
     return Drawer(
-      child: ListView(
-        children: [],
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView(
+          children: [
+            Text(
+              "Themenbereiche",
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
+            Container(height: 10),
+            Row(
+              children: [
+                autobahn
+                    ? IconButton(
+                        icon: Icon(Icons.arrow_upward),
+                        onPressed: () {
+                          setState(() {
+                            autobahn = false;
+                          });
+                        })
+                    : IconButton(
+                        icon: Icon(Icons.arrow_downward),
+                        onPressed: () {
+                          setState(() {
+                            autobahn = true;
+                          });
+                        }),
+                Text("Autobahn"),
+              ],
+            ),
+            autobahn
+                ? Container(
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: Text('Einfahren'),
+                          onTap: () {},
+                        ),
+                        ListTile(
+                          title: Text('Ausfahren'),
+                          onTap: () {},
+                        ),
+                        ListTile(
+                          title: Text('Überholen'),
+                          onTap: () {},
+                        ),
+                      ],
+                    ),
+                  )
+                : Container(),
+            Container(height: 10),
+            Row(
+              children: [
+                abbiegen
+                    ? IconButton(
+                        icon: Icon(Icons.arrow_upward),
+                        onPressed: () {
+                          setState(() {
+                            abbiegen = false;
+                          });
+                        })
+                    : IconButton(
+                        icon: Icon(Icons.arrow_downward),
+                        onPressed: () {
+                          setState(() {
+                            abbiegen = true;
+                          });
+                        }),
+                Text("Abbiegen"),
+              ],
+            ),
+            abbiegen
+                ? Container(
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: Text('Rechtsabbiegen'),
+                          onTap: () {},
+                        ),
+                        ListTile(
+                          title: Text('Linksabbiegen'),
+                          onTap: () {},
+                        ),
+                        ListTile(
+                          title: Text('Mehrspurig'),
+                          onTap: () {},
+                        ),
+                      ],
+                    ),
+                  )
+                : Container(),
+            Container(height: 10),
+            Row(
+              children: [
+                verkehrsmittel
+                    ? IconButton(
+                        icon: Icon(Icons.arrow_upward),
+                        onPressed: () {
+                          setState(() {
+                            verkehrsmittel = false;
+                          });
+                        })
+                    : IconButton(
+                        icon: Icon(Icons.arrow_downward),
+                        onPressed: () {
+                          setState(() {
+                            verkehrsmittel = true;
+                          });
+                        }),
+                Text("Öffentliche Verkehrsmittel"),
+              ],
+            ),
+            verkehrsmittel
+                ? ListTile(
+                    title: Text('Haltestellen'),
+                    onTap: () {},
+                  )
+                : Container(),
+            Container(height: 10),
+            Row(
+              children: [
+                fussgaengerueberwege
+                    ? IconButton(
+                        icon: Icon(Icons.arrow_upward),
+                        onPressed: () {
+                          setState(() {
+                            fussgaengerueberwege = false;
+                          });
+                        })
+                    : IconButton(
+                        icon: Icon(Icons.arrow_downward),
+                        onPressed: () {
+                          setState(() {
+                            fussgaengerueberwege = true;
+                          });
+                        }),
+                Text("Fußgängerüberwege/Bahnübergänge"),
+              ],
+            ),
+            fussgaengerueberwege
+                ? Container(
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: Text('Fußgängerüberwege'),
+                          onTap: () {},
+                        ),
+                        ListTile(
+                          title: Text('Bahnübergänge'),
+                          onTap: () {},
+                        ),
+                        ListTile(
+                          title: Text('Wartepflichts'),
+                          onTap: () {},
+                        ),
+                      ],
+                    ),
+                  )
+                : Container(),
+            Container(height: 10),
+            Row(
+              children: [
+                vorfahrt
+                    ? IconButton(
+                        icon: Icon(Icons.arrow_upward),
+                        onPressed: () {
+                          setState(() {
+                            vorfahrt = false;
+                          });
+                        })
+                    : IconButton(
+                        icon: Icon(Icons.arrow_downward),
+                        onPressed: () {
+                          setState(() {
+                            vorfahrt = true;
+                          });
+                        }),
+                Text("Vorfahrt"),
+              ],
+            ),
+            fussgaengerueberwege
+                ? Container(
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: Text('rechts vor links'),
+                          onTap: () {},
+                        ),
+                        ListTile(
+                          title: Text('Verkehrszeichen'),
+                          onTap: () {},
+                        ),
+                        ListTile(
+                          title: Text('Vorfahrtsstraße'),
+                          onTap: () {},
+                        ),
+                      ],
+                    ),
+                  )
+                : Container()
+          ],
+        ),
       ),
     );
   }
