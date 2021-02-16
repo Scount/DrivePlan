@@ -44,11 +44,7 @@ class _ZusatzTrainingState extends State<ZusatzTraining> {
                       child: DropdownButton(
                     value: dropDownValue,
                     icon: Icon(Icons.arrow_drop_down),
-                    items: <String>[
-                      "Praxispakete",
-                      "Wahrnehmungsbilder",
-                      "Suchbilder"
-                    ]
+                    items: <String>["Praxispakete", "Wahrnehmungsbilder", "Suchbilder"]
                         .map((e) => DropdownMenuItem(
                               child: Text(e),
                               value: e,
@@ -70,34 +66,52 @@ class _ZusatzTrainingState extends State<ZusatzTraining> {
     );
   }
 
+  Map<String, List<String>> praxisPaketeInhalt = {
+    "Autobahn": ["Einfahren", "Ausfahren", "Überholen"],
+    "Abbiegen": ["Rechtsabbiegen", "Linksabbiegen", "Mehrspurig", "Fahrstreigenwechsel"],
+    "Öffentliche Verkehrsmittel": ["Haltestellen"],
+    "Fußgängerüberwege/Bahnübergänge": ["Fußgängerüberwege", "Bahnübergänge", "Wartepflicht"],
+    "Vorfahrt": ["rechts vor links", "Vorfahrtregelnde Verkehrszeichen", "abknickende Vorfahrtsstraße"]
+  };
+
   Widget praxisPaketeWidget() {
     return ListView.builder(
       shrinkWrap: true,
-      itemCount: 10,
-      itemBuilder: (context, index) => Card(child:ExpansionTile(
-        title: Text("Test"),
-        children: [
-          Row(
-            children: [
+      itemCount: praxisPaketeInhalt.keys.length,
+      itemBuilder: (context, index) {
+        var commentWidgets = List<Widget>();
+        for (var comment in praxisPaketeInhalt[praxisPaketeInhalt.keys.elementAt(index)]) {
+          commentWidgets.add(Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [Image.network('https://picsum.photos/250?image=9', height: 50), Text(comment)],
+            ),
+          ));
+        }
+        return Card(
+            child: ExpansionTile(
+          title: Text(praxisPaketeInhalt.keys.elementAt(index)),
+          children: [
+            Row(
+              children: commentWidgets,
+              /* children: [
               Padding(
-                child: Image.network('https://picsum.photos/250?image=9',
-                    height: 50),
+                child: Image.network('https://picsum.photos/250?image=9', height: 50),
                 padding: const EdgeInsets.all(8),
               ),
               Padding(
-                child: Image.network('https://picsum.photos/250?image=9',
-                    height: 50),
+                child: Image.network('https://picsum.photos/250?image=9', height: 50),
                 padding: const EdgeInsets.all(8),
               ),
               Padding(
-                child: Image.network('https://picsum.photos/250?image=9',
-                    height: 50),
+                child: Image.network('https://picsum.photos/250?image=9', height: 50),
                 padding: const EdgeInsets.all(8),
               ),
-            ],
-          )
-        ],
-      )),
+            ],*/
+            )
+          ],
+        ));
+      },
     );
   }
 
@@ -105,28 +119,13 @@ class _ZusatzTrainingState extends State<ZusatzTraining> {
     return ResponsiveGridList(
       desiredItemWidth: 150,
       minSpacing: 5,
-      children: [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20
-      ].map((e) => Card(elevation: 5,child:Padding(padding: const EdgeInsets.all(5),child:Image.network('https://picsum.photos/250?image=9')),)).toList(),
+      children: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+          .map((e) => Card(
+                elevation: 5,
+                child: Padding(
+                    padding: const EdgeInsets.all(5), child: Image.network('https://picsum.photos/250?image=9')),
+              ))
+          .toList(),
     );
   }
 
@@ -134,28 +133,13 @@ class _ZusatzTrainingState extends State<ZusatzTraining> {
     return ResponsiveGridList(
       desiredItemWidth: 150,
       minSpacing: 5,
-      children: [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20
-      ].map((e) => Card(elevation: 5,child:Padding(padding: const EdgeInsets.all(5),child:Image.network('https://picsum.photos/250?image=4')),)).toList(),
+      children: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+          .map((e) => Card(
+                elevation: 5,
+                child: Padding(
+                    padding: const EdgeInsets.all(5), child: Image.network('https://picsum.photos/250?image=4')),
+              ))
+          .toList(),
     );
   }
 
@@ -171,18 +155,16 @@ class _ZusatzTrainingState extends State<ZusatzTraining> {
           sm: 6,
         ),
         ResponsiveGridCol(
-          child: theorieCard(
-              "Schwierig markierte Fragen", "Du hast keine Fragen makiert"),
-          sm: 6,
-        ),
-        ResponsiveGridCol(
-          child: theorieCard("Variationentrainer",
-              "Trainiere Bild- und Videofragen mit je fünf verschiedenen Variationen"),
+          child: theorieCard("Schwierig markierte Fragen", "Du hast keine Fragen makiert"),
           sm: 6,
         ),
         ResponsiveGridCol(
           child: theorieCard(
-              "Animationstrainer", "Hier findest du alle Videofragen"),
+              "Variationentrainer", "Trainiere Bild- und Videofragen mit je fünf verschiedenen Variationen"),
+          sm: 6,
+        ),
+        ResponsiveGridCol(
+          child: theorieCard("Animationstrainer", "Hier findest du alle Videofragen"),
           sm: 6,
         ),
         ResponsiveGridCol(
