@@ -137,8 +137,12 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Container(
-                  height: 10,
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Container(
+                    child: Text(
+                        "Der Geführte Lernweg bringt dir die Theorie Grundlagen bei und bereitet dich auf deine Theorieprüfung vor"),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -147,11 +151,17 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(padding: const EdgeInsets.only(bottom:5),child: Text("Fortschritt: ",style: TextStyle(fontWeight: FontWeight.bold),),),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 5),
+                          child: Text(
+                            "Fortschritt: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
                         LinearProgressIndicator(
                           value: .6,
-                          valueColor:
-                              AlwaysStoppedAnimation<Color>(Colors.yellowAccent),
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                              Colors.yellowAccent),
                           backgroundColor: Colors.grey,
                           minHeight: 20,
                         ),
