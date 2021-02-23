@@ -39,7 +39,7 @@ class _MyAccountState extends State<MyAccount> {
                     children: [
                       Icon(Icons.stacked_bar_chart),
                       Expanded(child: Center(child: Text("Statistik"))),
-                      Icon(Icons.arrow_forward_ios)
+                      Icon(Icons.arrow_forward_ios,color: Colors.white,)
                     ],
                   ),
                 ),
@@ -57,7 +57,7 @@ class _MyAccountState extends State<MyAccount> {
                     children: [
                       Icon(Icons.timelapse),
                       Expanded(child: Center(child: Text("Meine Stunden"))),
-                      Icon(Icons.arrow_forward_ios)
+                      Icon(Icons.arrow_forward_ios,color: Colors.white,)
                     ],
                   ),
                 ),
@@ -75,7 +75,7 @@ class _MyAccountState extends State<MyAccount> {
                     children: [
                       Icon(Icons.insert_drive_file),
                       Expanded(child: Center(child: Text("Dokumentenmappe"))),
-                      Icon(Icons.arrow_forward_ios)
+                      Icon(Icons.arrow_forward_ios,color: Colors.white,)
                     ],
                   ),
                 ),
@@ -93,7 +93,7 @@ class _MyAccountState extends State<MyAccount> {
                     children: [
                       Icon(Icons.calendar_today),
                       Expanded(child: Center(child: Text("Mein Kalender"))),
-                      Icon(Icons.arrow_forward_ios)
+                      Icon(Icons.arrow_forward_ios,color: Colors.white,)
                     ],
                   ),
                 ),

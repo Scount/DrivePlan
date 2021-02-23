@@ -1,15 +1,15 @@
-import 'package:driveplan/pages/questions2_page.dart';
+import 'package:driveplan/pages/questions_page.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 
-class QuestionsPage extends StatefulWidget {
-  static String routeName = '/questions';
+class Questions2Page extends StatefulWidget {
+  static String routeName = '/questions2';
 
   @override
-  _QuestionsPageState createState() => _QuestionsPageState();
+  _Questions2PageState createState() => _Questions2PageState();
 }
 
-class _QuestionsPageState extends State<QuestionsPage> {
+class _Questions2PageState extends State<Questions2Page> {
   bool pictureOrVideo = false;
   Color star = Colors.white;
   @override
@@ -21,17 +21,14 @@ class _QuestionsPageState extends State<QuestionsPage> {
           child: Padding(
               padding: const EdgeInsets.only(bottom: 5),
               child: Text(
-                "Frage: 42/100 - Punkte: 5",
+                "Frage: 43/100 - Punkte: 3",
                 style: TextStyle(color: Colors.white),
               )),
           preferredSize: new Size.fromHeight(0),
         ),
         actions: [
           IconButton(
-              icon: Icon(
-                Icons.star,
-                color: star,
-              ),
+              icon: Icon(Icons.star,color: star,),
               onPressed: () {
                 setState(() {
                   if (star == Colors.white)
@@ -66,25 +63,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Card(
-          child: !pictureOrVideo
-              ? Container(
-                  decoration: BoxDecoration(
-                      color: Colors.blue[200],
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5),
-                      )),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Center(
-                      child: Text(
-                        "Warum sind ältere Fußgänger im Verkehr mehr gefährdet als jüngere?",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                )
-              : Column(
+          child: Column(
                   children: [
                     Container(
                       decoration: BoxDecoration(
@@ -98,21 +77,21 @@ class _QuestionsPageState extends State<QuestionsPage> {
                         child: Text(
                           "Warum sind ältere Fußgänger im Verkehr mehr gefährdet als jüngere?",
                           style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
+                              fontSize: 18, fontWeight: FontWeight.bold),textAlign: TextAlign.center,
                         ),
                       ),
                     ),
                     Expanded(
                         child: Center(
                             child:
-                                Text("Hier befindet sich das Bild oder Video")))
+                                Image.network('https://picsum.photos/250?image=2', height: 250)))
                   ],
                 ),
         ),
       ),
     );
   }
+
 
   Widget answers() {
     return Expanded(
@@ -186,12 +165,14 @@ class _QuestionsPageState extends State<QuestionsPage> {
                     color: Colors.white,
                   ),
                   Text(
-                    " 41",
+                    " 42",
                     style: TextStyle(color: Colors.white),
                   ),
                 ],
               ),
-              onPressed: () {}),
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, QuestionsPage.routeName);
+              }),
           IconButton(
               icon: Icon(
                 Icons.info,
@@ -211,7 +192,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
               child: Row(
                 children: [
                   Text(
-                    "43 ",
+                    "44 ",
                     style: TextStyle(color: Colors.white),
                   ),
                   Icon(
@@ -220,10 +201,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
                   ),
                 ],
               ),
-              onPressed: () {
-                Navigator.pushReplacementNamed(
-                    context, Questions2Page.routeName);
-              })
+              onPressed: () {})
         ],
       ),
     );

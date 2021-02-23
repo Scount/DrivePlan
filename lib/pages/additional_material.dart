@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AdditionalTrainingPage extends StatefulWidget {
   AdditionalTrainingPage({Key key}) : super(key: key);
 
-static String routeName = '/additional_training';
+  static String routeName = '/additional_training';
 
   @override
   _AdditionalTrainingPageState createState() => _AdditionalTrainingPageState();
@@ -44,7 +44,12 @@ class _AdditionalTrainingPageState extends State<AdditionalTrainingPage> {
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       children: [
+                        Icon(
+                          Icons.how_to_vote,
+                          color: Colors.white,
+                        ),
                         Expanded(child: Center(child: Text("Drivers Cam"))),
+                        Icon(Icons.arrow_forward_ios)
                       ],
                     ),
                   ),
@@ -79,7 +84,12 @@ class _AdditionalTrainingPageState extends State<AdditionalTrainingPage> {
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       children: [
+                        Icon(
+                          Icons.how_to_vote,
+                          color: Colors.white,
+                        ),
                         Expanded(child: Center(child: Text("Gefahren Lernen"))),
+                        Icon(Icons.arrow_forward_ios)
                       ],
                     ),
                   ),
@@ -99,7 +109,8 @@ class _AdditionalTrainingPageState extends State<AdditionalTrainingPage> {
                             children: [
                               Text(
                                 "Selbstlerneinheiten & Voting",
-                                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
                               ),
                               Container(
                                 height: 10,
@@ -116,17 +127,20 @@ class _AdditionalTrainingPageState extends State<AdditionalTrainingPage> {
                               Text(
                                   "Mit Senden des Codes kann auch deine Anwesnheit am heutigen Theorieunterricht erfasst werden."),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   FlatButton(
                                       onPressed: () {
                                         Navigator.of(context).pop(false);
                                       },
+                                      textColor: Colors.black,
                                       child: Text("Abbrechen")),
                                   FlatButton(
                                       onPressed: () {
                                         Navigator.of(context).pop(false);
                                       },
+                                      textColor: Colors.black,
                                       child: Text("Code Senden"))
                                 ],
                               )
@@ -143,9 +157,17 @@ class _AdditionalTrainingPageState extends State<AdditionalTrainingPage> {
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       children: [
-                        Icon(Icons.how_to_vote),
-                        Expanded(child: Center(child: Text("Selbstlerneinheiten & Voting"))),
-                        Icon(Icons.arrow_forward_ios)
+                        Icon(
+                          Icons.how_to_vote,
+                          color: Colors.white,
+                        ),
+                        Expanded(
+                            child: Center(
+                                child: Text("Selbstlerneinheiten & Voting"))),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.white,
+                        )
                       ],
                     ),
                   ),

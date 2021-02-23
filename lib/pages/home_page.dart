@@ -52,7 +52,6 @@ class _HomePageState extends State<HomePage> {
                   Navigator.pushNamed(context, Impressum.routeName);
                   break;
                 case Menu.hilfe:
-                  Navigator.pushNamed(context, ZusatzTraining.routeName);
                   break;
                 case Menu.ausloggen:
                   Navigator.popUntil(context,

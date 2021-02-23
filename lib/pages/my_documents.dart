@@ -36,45 +36,105 @@ class _MyDocumentsState extends State<MyDocuments> {
     return SingleChildScrollView(
         child: ResponsiveGridRow(children: [
       ResponsiveGridCol(
-          xs: 12,
-          sm: 6,
-          child: Card(
-              child: Container(
+        xs: 12,
+        sm: 6,
+        child: Card(
+          child: Container(
             height: 100,
-            child: Text("Erste-Hilfe-Kurs"),
-          ))),
+            child: Scaffold(
+              backgroundColor: Colors.white,
+              body: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text("Erste-Hilfe-Kurs"),
+              ),
+              floatingActionButton: FloatingActionButton(
+                onPressed: () {},
+                child: Icon(Icons.add),
+              ),
+            ),
+          ),
+        ),
+      ),
       ResponsiveGridCol(
-          xs: 12,
-          sm: 6,
-          child: Card(
-              child: Container(
+        xs: 12,
+        sm: 6,
+        child: Card(
+          child: Container(
             height: 100,
-            child: Text("Personalausweis/Reisepass"),
-          ))),
+            child: Scaffold(
+              backgroundColor: Colors.white,
+              body: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text("Personalausweis/Reisepass"),
+              ),
+              floatingActionButton: FloatingActionButton(
+                onPressed: () {},
+                child: Icon(Icons.add),
+              ),
+            ),
+          ),
+        ),
+      ),
       ResponsiveGridCol(
-          xs: 12,
-          sm: 6,
-          child: Card(
-              child: Container(
+        xs: 12,
+        sm: 6,
+        child: Card(
+          child: Container(
             height: 100,
-            child: Text("Biometrisches Passbild"),
-          ))),
+            child: Scaffold(
+              backgroundColor: Colors.white,
+              body: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text("Biometrisches Passbild"),
+              ),
+              floatingActionButton: FloatingActionButton(
+                onPressed: () {},
+                child: Icon(Icons.add),
+              ),
+            ),
+          ),
+        ),
+      ),
       ResponsiveGridCol(
-          xs: 12,
-          sm: 6,
-          child: Card(
-              child: Container(
+        xs: 12,
+        sm: 6,
+        child: Card(
+          child: Container(
             height: 100,
-            child: Text("Sehtest"),
-          ))),
+            child: Scaffold(
+              backgroundColor: Colors.white,
+              body: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text("Sehtest"),
+              ),
+              floatingActionButton: FloatingActionButton(
+                onPressed: () {},
+                child: Icon(Icons.add),
+              ),
+            ),
+          ),
+        ),
+      ),
       ResponsiveGridCol(
-          xs: 12,
-          sm: 12,
-          child: Card(
-              child: Container(
+        xs: 12,
+        sm: 12,
+        child: Card(
+          child: Container(
             height: 100,
-            child: Text("Prüfauftrag"),
-          ))),
+            child: Scaffold(
+              backgroundColor: Colors.white,
+              body: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text("Prüfauftrag"),
+              ),
+              floatingActionButton: FloatingActionButton(
+                onPressed: () {},
+                child: Icon(Icons.add),
+              ),
+            ),
+          ),
+        ),
+      ),
     ]));
   }
 

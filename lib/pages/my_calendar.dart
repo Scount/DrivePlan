@@ -16,7 +16,7 @@ class _MyCalendarState extends State<MyCalendar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Kalender"),),
-      body: SingleChildScrollView(child: TableCalendar(calendarController: controller,),)
+      body: SingleChildScrollView(child: Card(child: TableCalendar(calendarController: controller,),),)
     );
   }
 }

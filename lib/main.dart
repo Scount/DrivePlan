@@ -13,6 +13,8 @@ import 'package:driveplan/pages/statistik.dart';
 import 'package:driveplan/pages/zusatz_training.dart';
 import 'package:flutter/material.dart';
 
+import 'pages/questions2_page.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -38,7 +40,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: MaterialColor(Colors.grey[300].value, color),
           primaryColor: Colors.blue[900], // blue
-          accentColor: Colors.green[300], // green
+          accentColor: Colors.blue[300], // green
           cardTheme: CardTheme(
             color: Colors.white,
             shape: RoundedRectangleBorder(
@@ -61,12 +63,14 @@ class MyApp extends StatelessWidget {
               ),
               centerTitle: true,
               iconTheme: IconThemeData(color: Colors.white)),
-          scaffoldBackgroundColor: Colors.grey[400]),
+          scaffoldBackgroundColor: Colors.grey[400],
+      ),
       routes: {
         '/': (context) => SplashScreen(),
         LoginPage.routeName: (context) => LoginPage(),
         HomePage.routeName: (context) => HomePage(),
         QuestionsPage.routeName: (context) => QuestionsPage(),
+        Questions2Page.routeName: (context) => Questions2Page(),
         MyAccount.routeName: (context) => MyAccount(),
         MyCalendar.routeName: (context) => MyCalendar(),
         MyDocuments.routeName: (context) => MyDocuments(),

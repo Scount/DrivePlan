@@ -70,10 +70,10 @@ class _ZusatzTrainingState extends State<ZusatzTraining> {
 
   Map<String, List<String>> praxisPaketeInhalt = {
     "Autobahn": ["Einfahren", "Ausfahren", "Überholen"],
-    "Abbiegen": ["Rechtsabbiegen", "Linksabbiegen", "Mehrspurig", "Fahrstreigenwechsel"],
+    "Abbiegen": ["Rechtsabbiegen", "Linksabbiegen", "Mehrspurig"],
     "Öffentliche Verkehrsmittel": ["Haltestellen"],
     "Fußgängerüberwege/Bahnübergänge": ["Fußgängerüberwege", "Bahnübergänge", "Wartepflicht"],
-    "Vorfahrt": ["rechts vor links", "Vorfahrtregelnde Verkehrszeichen", "abknickende Vorfahrtsstraße"]
+    "Vorfahrt": ["Rechts vor Links", "Verkehrszeichen"]
   };
 
   Widget praxisPaketeWidget() {
