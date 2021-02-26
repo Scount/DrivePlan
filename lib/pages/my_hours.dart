@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class MyHours extends StatefulWidget {
   MyHours({Key key}) : super(key: key);
 
-    static String routeName = '/my_hours';
+  static String routeName = '/my_hours';
 
   @override
   _MyHoursState createState() => _MyHoursState();
@@ -36,69 +36,95 @@ class _MyHoursState extends State<MyHours> {
       shrinkWrap: true,
       children: [
         ListTile(
-          title: Text("Grundwissen"),
-          trailing: Text("7/12"),
-          tileColor: Colors.grey,
+          title: Text(
+            "Grundwissen",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+          trailing: Text(
+            "7/12",
+            style: TextStyle(color: Colors.white),
+          ),
+          tileColor: Colors.blueAccent,
         ),
         ListTile(
           title: Text("Thema 1"),
           subtitle: Text("Januar 2021, 19:00 - 20:30"),
+          tileColor: Colors.blue[50],
         ),
         ListTile(
           title: Text("Thema 2"),
           subtitle: Text("Januar 2021, 19:00 - 20:30"),
+          tileColor: Colors.blue[100],
         ),
         ListTile(
           title: Text("Thema 3"),
           subtitle: Text("Januar 2021, 19:00 - 20:30"),
+          tileColor: Colors.blue[50],
         ),
         ListTile(
           title: Text("Thema 4"),
           subtitle: Text("Februar 2021, 19:00 - 20:30"),
+          tileColor: Colors.blue[100],
         ),
         ListTile(
           title: Text("Thema 5"),
           subtitle: Text("Januar 2021, 19:00 - 20:30"),
+          tileColor: Colors.blue[50],
         ),
         ListTile(
           title: Text("Thema 6"),
+          tileColor: Colors.blue[100],
         ),
         ListTile(
           title: Text("Thema 7"),
+          tileColor: Colors.blue[50],
         ),
         ListTile(
           title: Text("Thema 8"),
+          tileColor: Colors.blue[100],
         ),
         ListTile(
           title: Text("Thema 9"),
+          tileColor: Colors.blue[50],
         ),
         ListTile(
           title: Text("Thema 10"),
           subtitle: Text("Januar 2021, 19:00 - 20:30"),
+          tileColor: Colors.blue[100],
         ),
         ListTile(
           title: Text("Thema 11"),
           subtitle: Text("Januar 2021, 19:00 - 20:30"),
+          tileColor: Colors.blue[50],
         ),
         ListTile(
           title: Text("Thema 12"),
+          tileColor: Colors.blue[100],
+        ),
+        Container(
+          height: 2,
+          color: Colors.grey,
         ),
         ListTile(
-          title: Text("Klasse A"),
-          trailing: Text("0/4"),
-          tileColor: Colors.grey,
+          title: Text("Klasse A", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+          trailing: Text("0/4", style: TextStyle(color: Colors.white)),
+          tileColor: Colors.blueAccent,
         ),
         ListTile(
           title: Text("Thema 1"),
+          tileColor: Colors.blue[100],
         ),
         ListTile(
           title: Text("Thema 2"),
+          tileColor: Colors.blue[50],
         ),
         ListTile(
           title: Text("Thema 3"),
+          tileColor: Colors.blue[100],
         ),
         ListTile(
           title: Text("Thema 4"),
+          tileColor: Colors.blue[50],
         ),
       ],
     );
@@ -109,31 +135,32 @@ class _MyHoursState extends State<MyHours> {
       shrinkWrap: true,
       children: [
         ListTile(
-          title: Text("Übungsfahrten"),
-          subtitle: Text("mit Dauer von 45 Minuten"),
-          tileColor: Colors.grey,
+          title: Text("Übungsfahrten", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+          subtitle: Text("mit Dauer von 45 Minuten", style: TextStyle(color: Colors.white)),
+          tileColor: Colors.blueAccent,
         ),
         ListTile(
-          title: Text("Fahrstunden"),
-          trailing: Text("0"),
+            title: Text(
+              "Fahrstunden",
+            ),
+            trailing: Text("0"),
+            tileColor: Colors.blue[50]),
+        Container(
+          height: 2,
+          color: Colors.grey,
         ),
         ListTile(
-          title: Text("Sonderfahrten"),
-          subtitle: Text("mit Dauer von 45 Minuten"),
-          tileColor: Colors.grey,
+          title: Text("Sonderfahrten", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+          subtitle: Text("mit Dauer von 45 Minuten", style: TextStyle(color: Colors.white)),
+          tileColor: Colors.blueAccent,
         ),
-        ListTile(
-          title: Text("Überlandfahrten"),
-          trailing: Text("0/5"),
-        ),
+        ListTile(title: Text("Überlandfahrten"), trailing: Text("0/5"), tileColor: Colors.blue[50]),
         ListTile(
           title: Text("Autobahnfahrten"),
           trailing: Text("0/4"),
+          tileColor: Colors.blue[100],
         ),
-        ListTile(
-          title: Text("Nachtfahrten"),
-          trailing: Text("0/3"),
-        ),
+        ListTile(title: Text("Nachtfahrten"), trailing: Text("0/3"), tileColor: Colors.blue[50]),
       ],
     );
   }

@@ -139,28 +139,77 @@ class _MyDocumentsState extends State<MyDocuments> {
   }
 
   Widget bills() {
-    return DataTable(
-      columns: [
-        DataColumn(label: Text("Identifier")),
-        DataColumn(label: Text("Zu zahlen")),
-        DataColumn(label: Text("Gezahlt")),
-      ],
-      rows: [
-        DataRow(cells: [
-          DataCell(Text("Grundgebühr")),
-          DataCell(Text("380,00€")),
-          DataCell(Text("380,00€")),
-        ]),
-        DataRow(cells: [
-          DataCell(Text("Theorie")),
-          DataCell(Text("150,00€")),
-          DataCell(Text("150,00€")),
-        ]),
-        DataRow(cells: [
-          DataCell(Text("Material")),
-          DataCell(Text("42,00€")),
-          DataCell(Text("0,00€")),
-        ])
+    return Column(
+      children: [
+        Container(
+          height: 50,
+          color: Colors.blueAccent,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+            child: Row(
+              children: [
+                Expanded(
+                    flex: 1,
+                    child: Text("Identifier", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                Expanded(
+                    flex: 1,
+                    child: Text("Zu zahlen", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                Expanded(
+                    flex: 1, child: Text("Gezahlt", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)))
+              ],
+            ),
+          ),
+        ),
+        Container(
+          height: 50,
+          color: Colors.green[100],
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+            child: Row(
+              children: [
+                Expanded(flex: 1, child: Text("Grundgebühr")),
+                Expanded(flex: 1, child: Text("380,00€")),
+                Expanded(flex: 1, child: Text("380,00€"))
+              ],
+            ),
+          ),
+        ),
+        Container(
+          height: 1,
+          color: Colors.grey,
+        ),
+        Container(
+          height: 50,
+          color: Colors.green[100],
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+            child: Row(
+              children: [
+                Expanded(flex: 1, child: Text("Theorie")),
+                Expanded(flex: 1, child: Text("150,00€")),
+                Expanded(flex: 1, child: Text("150,00€"))
+              ],
+            ),
+          ),
+        ),
+        Container(
+          height: 1,
+          color: Colors.grey,
+        ),
+        Container(
+          height: 50,
+          color: Colors.red[100],
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+            child: Row(
+              children: [
+                Expanded(flex: 1, child: Text("Material")),
+                Expanded(flex: 1, child: Text("42,00€")),
+                Expanded(flex: 1, child: Text("0,00€"))
+              ],
+            ),
+          ),
+        )
       ],
     );
   }

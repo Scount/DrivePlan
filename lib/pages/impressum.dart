@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Impressum extends StatefulWidget {
-
   static String routeName = '/impressum';
 
   @override
@@ -12,11 +11,12 @@ class _ImpressumState extends State<Impressum> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Impressum"),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.fromLTRB(8, 20, 8, 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,

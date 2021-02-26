@@ -35,15 +35,12 @@ class _HomePageState extends State<HomePage> {
         title: Text("Fahren Lernen"),
         actions: [
           IconButton(
-              icon: Icon(Icons.account_circle),
-              onPressed: () =>
-                  Navigator.pushNamed(context, MyAccount.routeName)),
+              icon: Icon(Icons.account_circle), onPressed: () => Navigator.pushNamed(context, MyAccount.routeName)),
           PopupMenuButton(
             onSelected: (value) {
               switch (value) {
                 case Menu.materialien:
-                  Navigator.pushNamed(
-                      context, AdditionalTrainingPage.routeName);
+                  Navigator.pushNamed(context, AdditionalTrainingPage.routeName);
                   break;
                 case Menu.einstellungen:
                   Navigator.pushNamed(context, SettingPage.routeName);
@@ -54,8 +51,7 @@ class _HomePageState extends State<HomePage> {
                 case Menu.hilfe:
                   break;
                 case Menu.ausloggen:
-                  Navigator.popUntil(context,
-                      (route) => route.settings.name == LoginPage.routeName);
+                  Navigator.popUntil(context, (route) => route.settings.name == LoginPage.routeName);
                   break;
                 default:
               }
@@ -93,9 +89,7 @@ class _HomePageState extends State<HomePage> {
   Widget body() {
     return ResponsiveGridRow(children: [
       ResponsiveGridCol(child: questions(), sm: 6),
-      ausklappen
-          ? ResponsiveGridCol(child: zusatzTraining(), sm: 6)
-          : Container()
+      ausklappen ? ResponsiveGridCol(child: zusatzTraining(), sm: 6) : Container()
     ]);
   }
 
@@ -122,8 +116,7 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                         child: Text(
                       "Geführten Lernweg fortsetzen",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     )),
                     Icon(Icons.arrow_forward)
                   ],
@@ -139,8 +132,7 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding: const EdgeInsets.all(8),
                   child: Container(
-                    child: Text(
-                        "Der Geführte Lernweg bringt dir die Theorie Grundlagen bei und bereitet dich auf deine Theorieprüfung vor"),
+                    child: Text("Grundlagen für Theorie und Praxis"),
                   ),
                 ),
                 Padding(
@@ -159,8 +151,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         LinearProgressIndicator(
                           value: .6,
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                              Colors.yellowAccent),
+                          valueColor: AlwaysStoppedAnimation<Color>(Colors.yellowAccent),
                           backgroundColor: Colors.grey,
                           minHeight: 20,
                         ),
@@ -197,9 +188,7 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   children: [
                     Expanded(
-                        child: Text("Zusatz Training",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold))),
+                        child: Text("Zusatz Training", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
                     Icon(Icons.arrow_forward)
                   ],
                 ),
@@ -223,6 +212,9 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: [
+            Container(
+              height: 25,
+            ),
             Text(
               "Themenbereiche",
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
@@ -232,40 +224,43 @@ class _HomePageState extends State<HomePage> {
               children: [
                 autobahn
                     ? IconButton(
-                        icon: Icon(Icons.arrow_upward),
+                        icon: Icon(Icons.keyboard_arrow_up),
                         onPressed: () {
                           setState(() {
                             autobahn = false;
                           });
                         })
                     : IconButton(
-                        icon: Icon(Icons.arrow_downward),
+                        icon: Icon(Icons.keyboard_arrow_down),
                         onPressed: () {
                           setState(() {
                             autobahn = true;
                           });
                         }),
-                Text("Autobahn"),
+                Text(
+                  "Autobahn",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
               ],
             ),
             autobahn
-                ? Container(
-                    child: Column(
-                      children: [
-                        ListTile(
-                          title: Text('Einfahren'),
-                          onTap: () {},
-                        ),
-                        ListTile(
-                          title: Text('Ausfahren'),
-                          onTap: () {},
-                        ),
-                        ListTile(
-                          title: Text('Überholen'),
-                          onTap: () {},
-                        ),
-                      ],
+                ? Padding(
+                    padding: const EdgeInsets.fromLTRB(50, 0, 0, 0),
+                    child: Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(height: 25, child: Text('Einfahren')),
+                          Container(height: 25, child: Text('Ausfahren')),
+                          Container(height: 25, child: Text('Überholen')),
+                        ],
+                      ),
                     ),
+                  )
+                : Container(),
+            autobahn
+                ? Divider(
+                    color: Colors.black,
                   )
                 : Container(),
             Container(height: 10),
@@ -273,40 +268,40 @@ class _HomePageState extends State<HomePage> {
               children: [
                 abbiegen
                     ? IconButton(
-                        icon: Icon(Icons.arrow_upward),
+                        icon: Icon(Icons.keyboard_arrow_up),
                         onPressed: () {
                           setState(() {
                             abbiegen = false;
                           });
                         })
                     : IconButton(
-                        icon: Icon(Icons.arrow_downward),
+                        icon: Icon(Icons.keyboard_arrow_down),
                         onPressed: () {
                           setState(() {
                             abbiegen = true;
                           });
                         }),
-                Text("Abbiegen"),
+                Text("Abbiegen", style: TextStyle(fontWeight: FontWeight.bold)),
               ],
             ),
             abbiegen
-                ? Container(
-                    child: Column(
-                      children: [
-                        ListTile(
-                          title: Text('Rechtsabbiegen'),
-                          onTap: () {},
-                        ),
-                        ListTile(
-                          title: Text('Linksabbiegen'),
-                          onTap: () {},
-                        ),
-                        ListTile(
-                          title: Text('Mehrspurig'),
-                          onTap: () {},
-                        ),
-                      ],
+                ? Padding(
+                    padding: const EdgeInsets.fromLTRB(50, 0, 0, 0),
+                    child: Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(height: 25, child: Text('Rechtsabbiegen')),
+                          Container(height: 25, child: Text('Linksabbiegen')),
+                          Container(height: 25, child: Text('Mehrspurig')),
+                        ],
+                      ),
                     ),
+                  )
+                : Container(),
+            abbiegen
+                ? Divider(
+                    color: Colors.black,
                   )
                 : Container(),
             Container(height: 10),
@@ -314,26 +309,31 @@ class _HomePageState extends State<HomePage> {
               children: [
                 verkehrsmittel
                     ? IconButton(
-                        icon: Icon(Icons.arrow_upward),
+                        icon: Icon(Icons.keyboard_arrow_up),
                         onPressed: () {
                           setState(() {
                             verkehrsmittel = false;
                           });
                         })
                     : IconButton(
-                        icon: Icon(Icons.arrow_downward),
+                        icon: Icon(Icons.keyboard_arrow_down),
                         onPressed: () {
                           setState(() {
                             verkehrsmittel = true;
                           });
                         }),
-                Text("Öffentliche Verkehrsmittel"),
+                Text("Öffentliche Verkehrsmittel", style: TextStyle(fontWeight: FontWeight.bold)),
               ],
             ),
             verkehrsmittel
-                ? ListTile(
-                    title: Text('Haltestellen'),
-                    onTap: () {},
+                ? Padding(
+                    padding: const EdgeInsets.fromLTRB(50, 0, 0, 0),
+                    child: Container(height: 25, child: Text('Haltestellen')),
+                  )
+                : Container(),
+            verkehrsmittel
+                ? Divider(
+                    color: Colors.black,
                   )
                 : Container(),
             Container(height: 10),
@@ -341,40 +341,40 @@ class _HomePageState extends State<HomePage> {
               children: [
                 fussgaengerueberwege
                     ? IconButton(
-                        icon: Icon(Icons.arrow_upward),
+                        icon: Icon(Icons.keyboard_arrow_up),
                         onPressed: () {
                           setState(() {
                             fussgaengerueberwege = false;
                           });
                         })
                     : IconButton(
-                        icon: Icon(Icons.arrow_downward),
+                        icon: Icon(Icons.keyboard_arrow_down),
                         onPressed: () {
                           setState(() {
                             fussgaengerueberwege = true;
                           });
                         }),
-                Text("Fußgängerüberwege/Bahnübergänge"),
+                Text("Fußgängerüberwege/Bahnübergänge", style: TextStyle(fontWeight: FontWeight.bold)),
               ],
             ),
             fussgaengerueberwege
-                ? Container(
-                    child: Column(
-                      children: [
-                        ListTile(
-                          title: Text('Fußgängerüberwege'),
-                          onTap: () {},
-                        ),
-                        ListTile(
-                          title: Text('Bahnübergänge'),
-                          onTap: () {},
-                        ),
-                        ListTile(
-                          title: Text('Wartepflichts'),
-                          onTap: () {},
-                        ),
-                      ],
+                ? Padding(
+                    padding: const EdgeInsets.fromLTRB(50, 0, 0, 0),
+                    child: Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(height: 25, child: Text('Fußgängerüberwege')),
+                          Container(height: 25, child: Text('Bahnübergänge')),
+                          Container(height: 25, child: Text('Wartepflichts')),
+                        ],
+                      ),
                     ),
+                  )
+                : Container(),
+            fussgaengerueberwege
+                ? Divider(
+                    color: Colors.black,
                   )
                 : Container(),
             Container(height: 10),
@@ -382,42 +382,42 @@ class _HomePageState extends State<HomePage> {
               children: [
                 vorfahrt
                     ? IconButton(
-                        icon: Icon(Icons.arrow_upward),
+                        icon: Icon(Icons.keyboard_arrow_up),
                         onPressed: () {
                           setState(() {
                             vorfahrt = false;
                           });
                         })
                     : IconButton(
-                        icon: Icon(Icons.arrow_downward),
+                        icon: Icon(Icons.keyboard_arrow_down),
                         onPressed: () {
                           setState(() {
                             vorfahrt = true;
                           });
                         }),
-                Text("Vorfahrt"),
+                Text("Vorfahrt", style: TextStyle(fontWeight: FontWeight.bold)),
               ],
             ),
-            fussgaengerueberwege
-                ? Container(
-                    child: Column(
-                      children: [
-                        ListTile(
-                          title: Text('rechts vor links'),
-                          onTap: () {},
-                        ),
-                        ListTile(
-                          title: Text('Verkehrszeichen'),
-                          onTap: () {},
-                        ),
-                        ListTile(
-                          title: Text('Vorfahrtsstraße'),
-                          onTap: () {},
-                        ),
-                      ],
+            vorfahrt
+                ? Padding(
+                    padding: const EdgeInsets.fromLTRB(50, 0, 0, 0),
+                    child: Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(height: 25, child: Text('rechts vor links')),
+                          Container(height: 25, child: Text('Verkehrszeichen')),
+                          Container(height: 25, child: Text('Vorfahrtsstraße')),
+                        ],
+                      ),
                     ),
                   )
-                : Container()
+                : Container(),
+            vorfahrt
+                ? Divider(
+                    color: Colors.black,
+                  )
+                : Container(),
           ],
         ),
       ),

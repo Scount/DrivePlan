@@ -45,8 +45,7 @@ class _AdditionalTrainingPageState extends State<AdditionalTrainingPage> {
                     child: Row(
                       children: [
                         Icon(
-                          Icons.how_to_vote,
-                          color: Colors.white,
+                          Icons.shop,
                         ),
                         Expanded(child: Center(child: Text("Drivers Cam"))),
                         Icon(Icons.arrow_forward_ios)
@@ -85,8 +84,7 @@ class _AdditionalTrainingPageState extends State<AdditionalTrainingPage> {
                     child: Row(
                       children: [
                         Icon(
-                          Icons.how_to_vote,
-                          color: Colors.white,
+                          Icons.shop,
                         ),
                         Expanded(child: Center(child: Text("Gefahren Lernen"))),
                         Icon(Icons.arrow_forward_ios)
@@ -109,8 +107,7 @@ class _AdditionalTrainingPageState extends State<AdditionalTrainingPage> {
                             children: [
                               Text(
                                 "Selbstlerneinheiten & Voting",
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
+                                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                               ),
                               Container(
                                 height: 10,
@@ -127,8 +124,7 @@ class _AdditionalTrainingPageState extends State<AdditionalTrainingPage> {
                               Text(
                                   "Mit Senden des Codes kann auch deine Anwesnheit am heutigen Theorieunterricht erfasst werden."),
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
                                   FlatButton(
                                       onPressed: () {
@@ -159,11 +155,8 @@ class _AdditionalTrainingPageState extends State<AdditionalTrainingPage> {
                       children: [
                         Icon(
                           Icons.how_to_vote,
-                          color: Colors.white,
                         ),
-                        Expanded(
-                            child: Center(
-                                child: Text("Selbstlerneinheiten & Voting"))),
+                        Expanded(child: Center(child: Text("Selbstlerneinheiten & Voting"))),
                         Icon(
                           Icons.arrow_forward_ios,
                           color: Colors.white,
