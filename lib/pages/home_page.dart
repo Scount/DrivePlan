@@ -35,12 +35,15 @@ class _HomePageState extends State<HomePage> {
         title: Text("Fahren Lernen"),
         actions: [
           IconButton(
-              icon: Icon(Icons.account_circle), onPressed: () => Navigator.pushNamed(context, MyAccount.routeName)),
+              icon: Icon(Icons.account_circle),
+              onPressed: () =>
+                  Navigator.pushNamed(context, MyAccount.routeName)),
           PopupMenuButton(
             onSelected: (value) {
               switch (value) {
                 case Menu.materialien:
-                  Navigator.pushNamed(context, AdditionalTrainingPage.routeName);
+                  Navigator.pushNamed(
+                      context, AdditionalTrainingPage.routeName);
                   break;
                 case Menu.einstellungen:
                   Navigator.pushNamed(context, SettingPage.routeName);
@@ -51,7 +54,8 @@ class _HomePageState extends State<HomePage> {
                 case Menu.hilfe:
                   break;
                 case Menu.ausloggen:
-                  Navigator.popUntil(context, (route) => route.settings.name == LoginPage.routeName);
+                  Navigator.popUntil(context,
+                      (route) => route.settings.name == LoginPage.routeName);
                   break;
                 default:
               }
@@ -89,7 +93,9 @@ class _HomePageState extends State<HomePage> {
   Widget body() {
     return ResponsiveGridRow(children: [
       ResponsiveGridCol(child: questions(), sm: 6),
-      ausklappen ? ResponsiveGridCol(child: zusatzTraining(), sm: 6) : Container()
+      ausklappen
+          ? ResponsiveGridCol(child: zusatzTraining(), sm: 6)
+          : Container()
     ]);
   }
 
@@ -116,7 +122,8 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                         child: Text(
                       "Geführten Lernweg fortsetzen",
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     )),
                     Icon(Icons.arrow_forward)
                   ],
@@ -151,7 +158,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                         LinearProgressIndicator(
                           value: .6,
-                          valueColor: AlwaysStoppedAnimation<Color>(Colors.yellowAccent),
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                              Colors.yellowAccent),
                           backgroundColor: Colors.grey,
                           minHeight: 20,
                         ),
@@ -188,7 +196,9 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   children: [
                     Expanded(
-                        child: Text("Zusatz Training", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+                        child: Text("Zusatz Training",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold))),
                     Icon(Icons.arrow_forward)
                   ],
                 ),
@@ -250,9 +260,30 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(height: 25, child: Text('Einfahren')),
-                          Container(height: 25, child: Text('Ausfahren')),
-                          Container(height: 25, child: Text('Überholen')),
+                          GestureDetector(
+                            child: Container(
+                              height: 25,
+                              child: Text('Einfahren'),
+                            ),
+                            onTap: () => Navigator.pushNamed(
+                                context, QuestionsPage.routeName),
+                          ),
+                          GestureDetector(
+                            child: Container(
+                              height: 25,
+                              child: Text('Ausfahren'),
+                            ),
+                            onTap: () => Navigator.pushNamed(
+                                context, QuestionsPage.routeName),
+                          ),
+                          GestureDetector(
+                            child: Container(
+                              height: 25,
+                              child: Text('Überholen'),
+                            ),
+                            onTap: () => Navigator.pushNamed(
+                                context, QuestionsPage.routeName),
+                          ),
                         ],
                       ),
                     ),
@@ -291,9 +322,30 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(height: 25, child: Text('Rechtsabbiegen')),
-                          Container(height: 25, child: Text('Linksabbiegen')),
-                          Container(height: 25, child: Text('Mehrspurig')),
+                          GestureDetector(
+                            child: Container(
+                              height: 25,
+                              child: Text('Rechtsabbiegen'),
+                            ),
+                            onTap: () => Navigator.pushNamed(
+                                context, QuestionsPage.routeName),
+                          ),
+                          GestureDetector(
+                            child: Container(
+                              height: 25,
+                              child: Text('Linksabbiegen'),
+                            ),
+                            onTap: () => Navigator.pushNamed(
+                                context, QuestionsPage.routeName),
+                          ),
+                          GestureDetector(
+                            child: Container(
+                              height: 25,
+                              child: Text('Mehrspurig'),
+                            ),
+                            onTap: () => Navigator.pushNamed(
+                                context, QuestionsPage.routeName),
+                          ),
                         ],
                       ),
                     ),
@@ -322,13 +374,21 @@ class _HomePageState extends State<HomePage> {
                             verkehrsmittel = true;
                           });
                         }),
-                Text("Öffentliche Verkehrsmittel", style: TextStyle(fontWeight: FontWeight.bold)),
+                Text("Öffentliche Verkehrsmittel",
+                    style: TextStyle(fontWeight: FontWeight.bold)),
               ],
             ),
             verkehrsmittel
                 ? Padding(
                     padding: const EdgeInsets.fromLTRB(50, 0, 0, 0),
-                    child: Container(height: 25, child: Text('Haltestellen')),
+                    child: GestureDetector(
+                      child: Container(
+                        height: 25,
+                        child: Text('Haltestellen'),
+                      ),
+                      onTap: () =>
+                          Navigator.pushNamed(context, QuestionsPage.routeName),
+                    ),
                   )
                 : Container(),
             verkehrsmittel
@@ -354,7 +414,8 @@ class _HomePageState extends State<HomePage> {
                             fussgaengerueberwege = true;
                           });
                         }),
-                Text("Fußgängerüberwege/Bahnübergänge", style: TextStyle(fontWeight: FontWeight.bold)),
+                Text("Fußgängerüberwege/Bahnübergänge",
+                    style: TextStyle(fontWeight: FontWeight.bold)),
               ],
             ),
             fussgaengerueberwege
@@ -364,9 +425,30 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(height: 25, child: Text('Fußgängerüberwege')),
-                          Container(height: 25, child: Text('Bahnübergänge')),
-                          Container(height: 25, child: Text('Wartepflichts')),
+                          GestureDetector(
+                            child: Container(
+                              height: 25,
+                              child: Text('Fußgängerüberwege'),
+                            ),
+                            onTap: () => Navigator.pushNamed(
+                                context, QuestionsPage.routeName),
+                          ),
+                          GestureDetector(
+                            child: Container(
+                              height: 25,
+                              child: Text('Bahnübergänge'),
+                            ),
+                            onTap: () => Navigator.pushNamed(
+                                context, QuestionsPage.routeName),
+                          ),
+                          GestureDetector(
+                            child: Container(
+                              height: 25,
+                              child: Text('Wartepflichts'),
+                            ),
+                            onTap: () => Navigator.pushNamed(
+                                context, QuestionsPage.routeName),
+                          ),
                         ],
                       ),
                     ),
@@ -405,9 +487,30 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(height: 25, child: Text('rechts vor links')),
-                          Container(height: 25, child: Text('Verkehrszeichen')),
-                          Container(height: 25, child: Text('Vorfahrtsstraße')),
+                          GestureDetector(
+                            child: Container(
+                              height: 25,
+                              child: Text('rechts vor links'),
+                            ),
+                            onTap: () => Navigator.pushNamed(
+                                context, QuestionsPage.routeName),
+                          ),
+                          GestureDetector(
+                            child: Container(
+                              height: 25,
+                              child: Text('Verkehrszeichen'),
+                            ),
+                            onTap: () => Navigator.pushNamed(
+                                context, QuestionsPage.routeName),
+                          ),
+                          GestureDetector(
+                            child: Container(
+                              height: 25,
+                              child: Text('Vorfahrtsstraße'),
+                            ),
+                            onTap: () => Navigator.pushNamed(
+                                context, QuestionsPage.routeName),
+                          ),
                         ],
                       ),
                     ),
